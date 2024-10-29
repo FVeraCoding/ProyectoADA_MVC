@@ -7,6 +7,7 @@ package Modelo.Clases;
 import java.util.Date;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlType(propOrder = { "id", "nombre", "apellidos", "dni", "puesto", "telefono", "correo", "sueldo", "fechaContrato" })
@@ -21,6 +22,19 @@ public class Empleado {
     private String correo;
     private double sueldo;
     private Date fechaContrato;
+    
+
+    public Empleado(int id, String nombre, String apellidos, String dni, String puesto, String telefono, String correo, double sueldo, Date fechaContrato) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.dni = dni;
+        this.puesto = puesto;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.sueldo = sueldo;
+        this.fechaContrato = fechaContrato;
+    }    
 
     @XmlAttribute
     public int getId() {

@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Modelo.Clases;
 
 import java.util.Date;
@@ -9,10 +6,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-/**
- *
- * @author alumnadotarde
- */
+
 @XmlType(propOrder = { "id", "marca", "modelo", "fchFabricacion", "precio", "color", "numPuertas", "combustible" })
 public class Coche {
 
@@ -24,6 +18,19 @@ public class Coche {
     private String color;
     private int numPuertas;
     private String combustible;
+
+    public Coche(int id, String marca, String modelo, Date fchFabricacion, double precio, String color, int numPuertas, String combustible) {
+        this.id = id;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.fchFabricacion = fchFabricacion;
+        this.precio = precio;
+        this.color = color;
+        this.numPuertas = numPuertas;
+        this.combustible = combustible;
+    }
+    
+    
 
     @XmlAttribute
     public int getId() {
