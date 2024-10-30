@@ -125,6 +125,20 @@ public class ModeloFernando {
         }
 
     }
+    
+    public int getNumeroCoches(int idSucursal) throws JAXBException{
+        Sucursal sucursal = this.obtenerSucursal(idSucursal);
+        int numeroCoches = sucursal.getListaCoches().size();
+        
+        return numeroCoches;
+    }
+    
+    public int getNumeroEmpleados(int idSucursal) throws JAXBException{
+        Sucursal sucursal = this.obtenerSucursal(idSucursal);
+        int numeroEmpleados = sucursal.getListaEmpleados().size();
+        
+        return numeroEmpleados;
+    }
 
     public Sucursal obtenerSucursal(int id) throws JAXBException {
 
@@ -139,5 +153,7 @@ public class ModeloFernando {
         return null;
 
     }
+    
+    
 
 }
