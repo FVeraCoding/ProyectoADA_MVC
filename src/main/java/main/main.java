@@ -10,14 +10,11 @@ public class main {
         try {
             
             ModeloFernando modelo = new ModeloFernando();
-
-            
             Vista vista = new Vista(); 
-
             Controlador controlador = new Controlador(modelo, vista);
 
             
-            vista.setControlador(controlador); 
+            vista.setControlador(controlador);
 
             
             controlador.iniciar();
