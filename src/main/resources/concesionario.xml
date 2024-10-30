@@ -1,18 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <concesionario>
-    <nombre>Auto Global</nombre>
     <CEO>Mariana Torres</CEO>
+        <nombre>Alea Motors</nombre>
     <sucursales>
         <sucursal id="1">
             <jefe>Juan Pérez</jefe>
-            <localizacion>Madrid, España</localizacion>
-            <telefono>911 234 567</telefono>
             <coches>
                 <coche id="1">
                     <marca>Toyota</marca>
                     <modelo>Corolla</modelo>
                     <creacion>2022</creacion>
-                    <precio>20000</precio>
+                    <precio>20000.0</precio>
                     <color>Blanco</color>
                     <num_puertas>4</num_puertas>
                     <combustible>Gasolina</combustible>
@@ -21,7 +19,7 @@
                     <marca>Honda</marca>
                     <modelo>Civic</modelo>
                     <creacion>2021</creacion>
-                    <precio>22000</precio>
+                    <precio>22000.0</precio>
                     <color>Negro</color>
                     <num_puertas>4</num_puertas>
                     <combustible>Diesel</combustible>
@@ -30,7 +28,7 @@
                     <marca>Ford</marca>
                     <modelo>Focus</modelo>
                     <creacion>2020</creacion>
-                    <precio>21000</precio>
+                    <precio>21000.0</precio>
                     <color>Azul</color>
                     <num_puertas>4</num_puertas>
                     <combustible>Gasolina</combustible>
@@ -39,7 +37,7 @@
                     <marca>Volkswagen</marca>
                     <modelo>Golf</modelo>
                     <creacion>2022</creacion>
-                    <precio>25000</precio>
+                    <precio>25000.0</precio>
                     <color>Rojo</color>
                     <num_puertas>4</num_puertas>
                     <combustible>Híbrido</combustible>
@@ -48,7 +46,7 @@
                     <marca>Audi</marca>
                     <modelo>A4</modelo>
                     <creacion>2021</creacion>
-                    <precio>40000</precio>
+                    <precio>40000.0</precio>
                     <color>Gris</color>
                     <num_puertas>4</num_puertas>
                     <combustible>Gasolina</combustible>
@@ -57,7 +55,7 @@
                     <marca>Peugeot</marca>
                     <modelo>3008</modelo>
                     <creacion>2023</creacion>
-                    <precio>30000</precio>
+                    <precio>30000.0</precio>
                     <color>Negro</color>
                     <num_puertas>5</num_puertas>
                     <combustible>Diesel</combustible>
@@ -66,7 +64,7 @@
                     <marca>Renault</marca>
                     <modelo>Kadjar</modelo>
                     <creacion>2020</creacion>
-                    <precio>22000</precio>
+                    <precio>22000.0</precio>
                     <color>Verde</color>
                     <num_puertas>5</num_puertas>
                     <combustible>Gasolina</combustible>
@@ -75,7 +73,7 @@
                     <marca>Skoda</marca>
                     <modelo>Kodiaq</modelo>
                     <creacion>2022</creacion>
-                    <precio>35000</precio>
+                    <precio>35000.0</precio>
                     <color>Azul</color>
                     <num_puertas>5</num_puertas>
                     <combustible>Híbrido</combustible>
@@ -84,7 +82,7 @@
                     <marca>Hyundai</marca>
                     <modelo>Tucson</modelo>
                     <creacion>2021</creacion>
-                    <precio>28000</precio>
+                    <precio>28000.0</precio>
                     <color>Gris</color>
                     <num_puertas>5</num_puertas>
                     <combustible>Gasolina</combustible>
@@ -93,7 +91,7 @@
                     <marca>Fiat</marca>
                     <modelo>500</modelo>
                     <creacion>2022</creacion>
-                    <precio>15000</precio>
+                    <precio>15000.0</precio>
                     <color>Blanco</color>
                     <num_puertas>3</num_puertas>
                     <combustible>Eléctrico</combustible>
@@ -107,8 +105,7 @@
                     <puesto>Vendedora</puesto>
                     <telefono>611 123 456</telefono>
                     <correo>ana.garcia@madridautos.com</correo>
-                    <sueldo>25000</sueldo>
-                    <fecha_contrato>2020-03-15</fecha_contrato>
+                    <sueldo>25000.0</sueldo>
                 </empleado>
                 <empleado id="2">
                     <nombre>Carlos</nombre>
@@ -117,8 +114,7 @@
                     <puesto>Contable</puesto>
                     <telefono>622 234 567</telefono>
                     <correo>carlos.martinez@madridautos.com</correo>
-                    <sueldo>27000</sueldo>
-                    <fecha_contrato>2019-08-21</fecha_contrato>
+                    <sueldo>27000.0</sueldo>
                 </empleado>
                 <empleado id="3">
                     <nombre>Elena</nombre>
@@ -127,8 +123,7 @@
                     <puesto>Administrativa</puesto>
                     <telefono>633 345 678</telefono>
                     <correo>elena.perez@madridautos.com</correo>
-                    <sueldo>26000</sueldo>
-                    <fecha_contrato>2021-05-13</fecha_contrato>
+                    <sueldo>26000.0</sueldo>
                 </empleado>
                 <empleado id="4">
                     <nombre>Fernando</nombre>
@@ -137,8 +132,7 @@
                     <puesto>Vendedor</puesto>
                     <telefono>644 456 789</telefono>
                     <correo>fernando.sanchez@madridautos.com</correo>
-                    <sueldo>28000</sueldo>
-                    <fecha_contrato>2018-11-29</fecha_contrato>
+                    <sueldo>28000.0</sueldo>
                 </empleado>
                 <empleado id="5">
                     <nombre>Isabel</nombre>
@@ -147,22 +141,20 @@
                     <puesto>Marketing</puesto>
                     <telefono>655 567 890</telefono>
                     <correo>isabel.gomez@madridautos.com</correo>
-                    <sueldo>30000</sueldo>
-                    <fecha_contrato>2017-09-05</fecha_contrato>
+                    <sueldo>30000.0</sueldo>
                 </empleado>
             </empleados>
+            <localizacion>Madrid, España</localizacion>
+            <telefono>911234567</telefono>
         </sucursal>
-
         <sucursal id="2">
             <jefe>Andrés Morales</jefe>
-            <localizacion>Barcelona, España</localizacion>
-            <telefono>931 234 567</telefono>
             <coches>
                 <coche id="11">
                     <marca>BMW</marca>
                     <modelo>Serie 3</modelo>
                     <creacion>2021</creacion>
-                    <precio>35000</precio>
+                    <precio>35000.0</precio>
                     <color>Gris</color>
                     <num_puertas>4</num_puertas>
                     <combustible>Híbrido</combustible>
@@ -171,7 +163,7 @@
                     <marca>Hyundai</marca>
                     <modelo>Tucson</modelo>
                     <creacion>2023</creacion>
-                    <precio>28000</precio>
+                    <precio>28000.0</precio>
                     <color>Blanco</color>
                     <num_puertas>5</num_puertas>
                     <combustible>Gasolina</combustible>
@@ -180,7 +172,7 @@
                     <marca>Volkswagen</marca>
                     <modelo>Polo</modelo>
                     <creacion>2022</creacion>
-                    <precio>19000</precio>
+                    <precio>19000.0</precio>
                     <color>Negro</color>
                     <num_puertas>4</num_puertas>
                     <combustible>Gasolina</combustible>
@@ -189,7 +181,7 @@
                     <marca>Peugeot</marca>
                     <modelo>208</modelo>
                     <creacion>2021</creacion>
-                    <precio>17000</precio>
+                    <precio>17000.0</precio>
                     <color>Rojo</color>
                     <num_puertas>4</num_puertas>
                     <combustible>Híbrido</combustible>
@@ -198,7 +190,7 @@
                     <marca>Fiat</marca>
                     <modelo>Panda</modelo>
                     <creacion>2020</creacion>
-                    <precio>13000</precio>
+                    <precio>13000.0</precio>
                     <color>Verde</color>
                     <num_puertas>4</num_puertas>
                     <combustible>Gasolina</combustible>
@@ -207,7 +199,7 @@
                     <marca>Mercedes-Benz</marca>
                     <modelo>A-Class</modelo>
                     <creacion>2022</creacion>
-                    <precio>40000</precio>
+                    <precio>40000.0</precio>
                     <color>Azul</color>
                     <num_puertas>4</num_puertas>
                     <combustible>Diesel</combustible>
@@ -216,7 +208,7 @@
                     <marca>Renault</marca>
                     <modelo>Captur</modelo>
                     <creacion>2021</creacion>
-                    <precio>22000</precio>
+                    <precio>22000.0</precio>
                     <color>Amarillo</color>
                     <num_puertas>5</num_puertas>
                     <combustible>Gasolina</combustible>
@@ -225,7 +217,7 @@
                     <marca>Nissan</marca>
                     <modelo>Juke</modelo>
                     <creacion>2020</creacion>
-                    <precio>21000</precio>
+                    <precio>21000.0</precio>
                     <color>Blanco</color>
                     <num_puertas>5</num_puertas>
                     <combustible>Gasolina</combustible>
@@ -234,7 +226,7 @@
                     <marca>Kia</marca>
                     <modelo>Sportage</modelo>
                     <creacion>2022</creacion>
-                    <precio>27000</precio>
+                    <precio>27000.0</precio>
                     <color>Negro</color>
                     <num_puertas>5</num_puertas>
                     <combustible>Híbrido</combustible>
@@ -243,7 +235,7 @@
                     <marca>Chevrolet</marca>
                     <modelo>Malibu</modelo>
                     <creacion>2023</creacion>
-                    <precio>32000</precio>
+                    <precio>32000.0</precio>
                     <color>Rojo</color>
                     <num_puertas>4</num_puertas>
                     <combustible>Gasolina</combustible>
@@ -257,8 +249,7 @@
                     <puesto>Vendedora</puesto>
                     <telefono>611 789 012</telefono>
                     <correo>patricia.fernandez@barcelonautos.com</correo>
-                    <sueldo>26000</sueldo>
-                    <fecha_contrato>2019-11-05</fecha_contrato>
+                    <sueldo>26000.0</sueldo>
                 </empleado>
                 <empleado id="7">
                     <nombre>Javier</nombre>
@@ -267,8 +258,7 @@
                     <puesto>Contable</puesto>
                     <telefono>622 890 123</telefono>
                     <correo>javier.lopez@barcelonautos.com</correo>
-                    <sueldo>27000</sueldo>
-                    <fecha_contrato>2020-02-14</fecha_contrato>
+                    <sueldo>27000.0</sueldo>
                 </empleado>
                 <empleado id="8">
                     <nombre>Clara</nombre>
@@ -277,8 +267,7 @@
                     <puesto>Administrativa</puesto>
                     <telefono>633 901 234</telefono>
                     <correo>clara.perez@barcelonautos.com</correo>
-                    <sueldo>25000</sueldo>
-                    <fecha_contrato>2021-03-22</fecha_contrato>
+                    <sueldo>25000.0</sueldo>
                 </empleado>
                 <empleado id="9">
                     <nombre>Lucas</nombre>
@@ -287,8 +276,7 @@
                     <puesto>Marketing</puesto>
                     <telefono>644 012 345</telefono>
                     <correo>lucas.gonzalez@barcelonautos.com</correo>
-                    <sueldo>24000</sueldo>
-                    <fecha_contrato>2022-07-18</fecha_contrato>
+                    <sueldo>24000.0</sueldo>
                 </empleado>
                 <empleado id="10">
                     <nombre>Alba</nombre>
@@ -297,22 +285,20 @@
                     <puesto>Vendedora</puesto>
                     <telefono>655 123 456</telefono>
                     <correo>alba.ramos@barcelonautos.com</correo>
-                    <sueldo>23000</sueldo>
-                    <fecha_contrato>2020-12-01</fecha_contrato>
+                    <sueldo>23000.0</sueldo>
                 </empleado>
             </empleados>
+            <localizacion>Barcelona, España</localizacion>
+            <telefono>931234567</telefono>
         </sucursal>
-
         <sucursal id="3">
             <jefe>Laura Fernández</jefe>
-            <localizacion>Valencia, España</localizacion>
-            <telefono>961 234 567</telefono>
             <coches>
                 <coche id="21">
                     <marca>Renault</marca>
                     <modelo>Clio</modelo>
                     <creacion>2022</creacion>
-                    <precio>16000</precio>
+                    <precio>16000.0</precio>
                     <color>Azul</color>
                     <num_puertas>4</num_puertas>
                     <combustible>Gasolina</combustible>
@@ -321,7 +307,7 @@
                     <marca>Nissan</marca>
                     <modelo>Qashqai</modelo>
                     <creacion>2023</creacion>
-                    <precio>29000</precio>
+                    <precio>29000.0</precio>
                     <color>Negro</color>
                     <num_puertas>5</num_puertas>
                     <combustible>Híbrido</combustible>
@@ -330,7 +316,7 @@
                     <marca>Kia</marca>
                     <modelo>Ceed</modelo>
                     <creacion>2021</creacion>
-                    <precio>21000</precio>
+                    <precio>21000.0</precio>
                     <color>Rojo</color>
                     <num_puertas>4</num_puertas>
                     <combustible>Gasolina</combustible>
@@ -339,7 +325,7 @@
                     <marca>Seat</marca>
                     <modelo>Ibiza</modelo>
                     <creacion>2022</creacion>
-                    <precio>17000</precio>
+                    <precio>17000.0</precio>
                     <color>Blanco</color>
                     <num_puertas>4</num_puertas>
                     <combustible>Gasolina</combustible>
@@ -348,7 +334,7 @@
                     <marca>Chevrolet</marca>
                     <modelo>Onix</modelo>
                     <creacion>2021</creacion>
-                    <precio>14000</precio>
+                    <precio>14000.0</precio>
                     <color>Verde</color>
                     <num_puertas>4</num_puertas>
                     <combustible>Gasolina</combustible>
@@ -357,7 +343,7 @@
                     <marca>Peugeot</marca>
                     <modelo>308</modelo>
                     <creacion>2023</creacion>
-                    <precio>22000</precio>
+                    <precio>22000.0</precio>
                     <color>Negro</color>
                     <num_puertas>5</num_puertas>
                     <combustible>Híbrido</combustible>
@@ -366,7 +352,7 @@
                     <marca>Citroën</marca>
                     <modelo>C4</modelo>
                     <creacion>2020</creacion>
-                    <precio>18000</precio>
+                    <precio>18000.0</precio>
                     <color>Blanco</color>
                     <num_puertas>5</num_puertas>
                     <combustible>Gasolina</combustible>
@@ -375,7 +361,7 @@
                     <marca>Ford</marca>
                     <modelo>Kuga</modelo>
                     <creacion>2022</creacion>
-                    <precio>29000</precio>
+                    <precio>29000.0</precio>
                     <color>Rojo</color>
                     <num_puertas>5</num_puertas>
                     <combustible>Híbrido</combustible>
@@ -384,7 +370,7 @@
                     <marca>Mercedes-Benz</marca>
                     <modelo>GLA</modelo>
                     <creacion>2021</creacion>
-                    <precio>35000</precio>
+                    <precio>35000.0</precio>
                     <color>Gris</color>
                     <num_puertas>4</num_puertas>
                     <combustible>Gasolina</combustible>
@@ -393,7 +379,7 @@
                     <marca>Tesla</marca>
                     <modelo>Model 3</modelo>
                     <creacion>2023</creacion>
-                    <precio>45000</precio>
+                    <precio>45000.0</precio>
                     <color>Negro</color>
                     <num_puertas>4</num_puertas>
                     <combustible>Eléctrico</combustible>
@@ -407,8 +393,7 @@
                     <puesto>Vendedor</puesto>
                     <telefono>691 234 567</telefono>
                     <correo>diego.rodriguez@valenciaautos.com</correo>
-                    <sueldo>25000</sueldo>
-                    <fecha_contrato>2019-01-10</fecha_contrato>
+                    <sueldo>25000.0</sueldo>
                 </empleado>
                 <empleado id="12">
                     <nombre>Lucía</nombre>
@@ -417,8 +402,7 @@
                     <puesto>Contable</puesto>
                     <telefono>602 345 678</telefono>
                     <correo>lucia.hernandez@valenciaautos.com</correo>
-                    <sueldo>27000</sueldo>
-                    <fecha_contrato>2020-03-30</fecha_contrato>
+                    <sueldo>27000.0</sueldo>
                 </empleado>
                 <empleado id="13">
                     <nombre>Rafael</nombre>
@@ -427,8 +411,7 @@
                     <puesto>Marketing</puesto>
                     <telefono>613 456 789</telefono>
                     <correo>rafael.martin@valenciaautos.com</correo>
-                    <sueldo>28000</sueldo>
-                    <fecha_contrato>2021-06-21</fecha_contrato>
+                    <sueldo>28000.0</sueldo>
                 </empleado>
                 <empleado id="14">
                     <nombre>Sofía</nombre>
@@ -437,8 +420,7 @@
                     <puesto>Administrativa</puesto>
                     <telefono>624 567 890</telefono>
                     <correo>sofia.torres@valenciaautos.com</correo>
-                    <sueldo>26000</sueldo>
-                    <fecha_contrato>2018-11-14</fecha_contrato>
+                    <sueldo>26000.0</sueldo>
                 </empleado>
                 <empleado id="15">
                     <nombre>Antonio</nombre>
@@ -447,10 +429,11 @@
                     <puesto>Vendedor</puesto>
                     <telefono>635 678 901</telefono>
                     <correo>antonio.vazquez@valenciaautos.com</correo>
-                    <sueldo>25000</sueldo>
-                    <fecha_contrato>2022-02-10</fecha_contrato>
+                    <sueldo>25000.0</sueldo>
                 </empleado>
             </empleados>
+            <localizacion>Valencia, España</localizacion>
+            <telefono>961234567</telefono>
         </sucursal>
     </sucursales>
 </concesionario>

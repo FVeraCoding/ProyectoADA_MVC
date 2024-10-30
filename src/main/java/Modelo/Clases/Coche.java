@@ -7,23 +7,29 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
-@XmlType(propOrder = { "id", "marca", "modelo", "fchFabricacion", "precio", "color", "numPuertas", "combustible" })
+@XmlType(propOrder = { "id", "marca", "modelo", "creacion", "precio", "color", "numPuertas", "combustible" })
 public class Coche {
 
     private int id;
     private String marca;
     private String modelo;
-    private Date fchFabricacion;
+    private int creacion;
     private double precio;
     private String color;
     private int numPuertas;
     private String combustible;
+    
 
-    public Coche(int id, String marca, String modelo, Date fchFabricacion, double precio, String color, int numPuertas, String combustible) {
-        this.id = id;
+    public Coche() {
+    }
+    
+    
+
+    public Coche(String marca, String modelo, int creacion, double precio, String color, int numPuertas, String combustible) {
+        
         this.marca = marca;
         this.modelo = modelo;
-        this.fchFabricacion = fchFabricacion;
+        this.creacion = creacion;
         this.precio = precio;
         this.color = color;
         this.numPuertas = numPuertas;
@@ -32,7 +38,7 @@ public class Coche {
     
     
 
-    @XmlAttribute
+    @XmlAttribute(name = "id")
     public int getId() {
         return id;
     }
@@ -41,7 +47,7 @@ public class Coche {
         this.id = id;
     }
 
-    @XmlElement
+    @XmlElement(name = "marca")
     public String getMarca() {
         return marca;
     }
@@ -50,7 +56,7 @@ public class Coche {
         this.marca = marca;
     }
 
-    @XmlElement
+    @XmlElement(name = "modelo")
     public String getModelo() {
         return modelo;
     }
@@ -60,15 +66,15 @@ public class Coche {
     }
 
     @XmlElement(name = "creacion")
-    public Date getFchFabricacion() {
-        return fchFabricacion;
+    public int getCreacion() {
+        return creacion;
     }
 
-    public void setFchFabricacion(Date fchFabricacion) {
-        this.fchFabricacion = fchFabricacion;
+    public void setCreacion(int creacion) {
+        this.creacion = creacion;
     }
 
-    @XmlElement
+    @XmlElement(name = "precio")
     public double getPrecio() {
         return precio;
     }
@@ -77,7 +83,7 @@ public class Coche {
         this.precio = precio;
     }
 
-    @XmlElement
+    @XmlElement(name = "color")
     public String getColor() {
         return color;
     }
@@ -95,7 +101,7 @@ public class Coche {
         this.numPuertas = numPuertas;
     }
 
-    @XmlElement
+    @XmlElement(name = "combustible")
     public String getCombustible() {
         return combustible;
     }
