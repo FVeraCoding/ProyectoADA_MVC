@@ -29,6 +29,8 @@ public class Vista {
             System.out.println("Elige una opción: ");
             System.out.println("1. Agregar coche");
             System.out.println("2. Agregar nuevo empleado");
+            System.out.println("3. Mostrar número de empleados");
+            System.out.println("4. Mostrar número de coches");
             System.out.println("0. Salir");
             opcion = sc.nextInt();
             sc.nextLine(); // Consumir el salto de línea
@@ -42,7 +44,7 @@ public class Vista {
     }
 
     public int obtenerSucursalID() {
-        System.out.println("Introduce en qué sucursal quieres introducir el coche: ");
+        System.out.println("Introduce la sucursal: ");
         System.out.println("1. Madrid.");
         System.out.println("2. Barcelona.");
         System.out.println("3. Valencia");
@@ -52,7 +54,7 @@ public class Vista {
             idSucursal = sc.nextInt();
         }
         
-        return idSucursal; // Retorna el ID de la sucursal
+        return idSucursal; 
     }
 
     public Coche nuevoCoche() {
@@ -109,6 +111,14 @@ public class Vista {
         Empleado empleado = new Empleado(nombre, apellidos, dni, puesto, telefono, correo, sueldo);
         
         return empleado;
+    }
+    
+    public void mostrarNumeroEmpleados(int numeroEmpleados){
+        System.out.println("La sucursal tiene "+numeroEmpleados + " empleados.");
+    }
+    
+    public void mostrarNumeroCoches(int numeroCoches){
+        System.out.println("La sucursal tiene "+numeroCoches+" coches.");
     }
 
     public Controlador getControlador() {
