@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <concesionario>
     <CEO>Mariana Torres</CEO>
-        <nombre>Alea Motors</nombre>
     <sucursales>
         <sucursal id="1">
             <jefe>Juan Pérez</jefe>
@@ -96,6 +95,15 @@
                     <num_puertas>3</num_puertas>
                     <combustible>Eléctrico</combustible>
                 </coche>
+                <coche id="31">
+                    <marca>BMW</marca>
+                    <modelo>Serie 1</modelo>
+                    <creacion>2022</creacion>
+                    <precio>24000.0</precio>
+                    <color>Blanco</color>
+                    <num_puertas>4</num_puertas>
+                    <combustible>Gasoil</combustible>
+                </coche>
             </coches>
             <empleados>
                 <empleado id="1">
@@ -103,7 +111,7 @@
                     <apellidos>García López</apellidos>
                     <dni>12345678A</dni>
                     <puesto>Vendedora</puesto>
-                    <telefono>611 123 456</telefono>
+                    <telefono>611123456</telefono>
                     <correo>ana.garcia@madridautos.com</correo>
                     <sueldo>25000.0</sueldo>
                 </empleado>
@@ -112,7 +120,7 @@
                     <apellidos>Martínez Ruiz</apellidos>
                     <dni>87654321B</dni>
                     <puesto>Contable</puesto>
-                    <telefono>622 234 567</telefono>
+                    <telefono>622234567</telefono>
                     <correo>carlos.martinez@madridautos.com</correo>
                     <sueldo>27000.0</sueldo>
                 </empleado>
@@ -121,7 +129,7 @@
                     <apellidos>Pérez Gómez</apellidos>
                     <dni>98765432C</dni>
                     <puesto>Administrativa</puesto>
-                    <telefono>633 345 678</telefono>
+                    <telefono>633345678</telefono>
                     <correo>elena.perez@madridautos.com</correo>
                     <sueldo>26000.0</sueldo>
                 </empleado>
@@ -130,7 +138,7 @@
                     <apellidos>Sánchez Torres</apellidos>
                     <dni>11223344D</dni>
                     <puesto>Vendedor</puesto>
-                    <telefono>644 456 789</telefono>
+                    <telefono>644456789</telefono>
                     <correo>fernando.sanchez@madridautos.com</correo>
                     <sueldo>28000.0</sueldo>
                 </empleado>
@@ -139,7 +147,7 @@
                     <apellidos>Gómez Vidal</apellidos>
                     <dni>33445566E</dni>
                     <puesto>Marketing</puesto>
-                    <telefono>655 567 890</telefono>
+                    <telefono>655567890</telefono>
                     <correo>isabel.gomez@madridautos.com</correo>
                     <sueldo>30000.0</sueldo>
                 </empleado>
@@ -247,7 +255,7 @@
                     <apellidos>Fernández Ruiz</apellidos>
                     <dni>45678901F</dni>
                     <puesto>Vendedora</puesto>
-                    <telefono>611 789 012</telefono>
+                    <telefono>611789012</telefono>
                     <correo>patricia.fernandez@barcelonautos.com</correo>
                     <sueldo>26000.0</sueldo>
                 </empleado>
@@ -256,7 +264,7 @@
                     <apellidos>Lopez Martínez</apellidos>
                     <dni>22334455G</dni>
                     <puesto>Contable</puesto>
-                    <telefono>622 890 123</telefono>
+                    <telefono>622890123</telefono>
                     <correo>javier.lopez@barcelonautos.com</correo>
                     <sueldo>27000.0</sueldo>
                 </empleado>
@@ -265,7 +273,7 @@
                     <apellidos>Pérez Santos</apellidos>
                     <dni>66778899H</dni>
                     <puesto>Administrativa</puesto>
-                    <telefono>633 901 234</telefono>
+                    <telefono>633901234</telefono>
                     <correo>clara.perez@barcelonautos.com</correo>
                     <sueldo>25000.0</sueldo>
                 </empleado>
@@ -274,7 +282,7 @@
                     <apellidos>González Castro</apellidos>
                     <dni>99887766J</dni>
                     <puesto>Marketing</puesto>
-                    <telefono>644 012 345</telefono>
+                    <telefono>644012345</telefono>
                     <correo>lucas.gonzalez@barcelonautos.com</correo>
                     <sueldo>24000.0</sueldo>
                 </empleado>
@@ -283,7 +291,7 @@
                     <apellidos>Ramos Salas</apellidos>
                     <dni>11223344K</dni>
                     <puesto>Vendedora</puesto>
-                    <telefono>655 123 456</telefono>
+                    <telefono>655123456</telefono>
                     <correo>alba.ramos@barcelonautos.com</correo>
                     <sueldo>23000.0</sueldo>
                 </empleado>
@@ -391,7 +399,7 @@
                     <apellidos>Sánchez</apellidos>
                     <dni>77889900H</dni>
                     <puesto>Vendedor</puesto>
-                    <telefono>691 234 567</telefono>
+                    <telefono>691234567</telefono>
                     <correo>diego.rodriguez@valenciaautos.com</correo>
                     <sueldo>25000.0</sueldo>
                 </empleado>
@@ -400,7 +408,7 @@
                     <apellidos>Hernández López</apellidos>
                     <dni>44556677I</dni>
                     <puesto>Contable</puesto>
-                    <telefono>602 345 678</telefono>
+                    <telefono>602345678</telefono>
                     <correo>lucia.hernandez@valenciaautos.com</correo>
                     <sueldo>27000.0</sueldo>
                 </empleado>
@@ -409,7 +417,7 @@
                     <apellidos>Martín Pérez</apellidos>
                     <dni>99887766J</dni>
                     <puesto>Marketing</puesto>
-                    <telefono>613 456 789</telefono>
+                    <telefono>613456789</telefono>
                     <correo>rafael.martin@valenciaautos.com</correo>
                     <sueldo>28000.0</sueldo>
                 </empleado>
@@ -418,7 +426,7 @@
                     <apellidos>Torres Vargas</apellidos>
                     <dni>66778899K</dni>
                     <puesto>Administrativa</puesto>
-                    <telefono>624 567 890</telefono>
+                    <telefono>624567890</telefono>
                     <correo>sofia.torres@valenciaautos.com</correo>
                     <sueldo>26000.0</sueldo>
                 </empleado>
@@ -427,7 +435,7 @@
                     <apellidos>Vazquez Ramírez</apellidos>
                     <dni>12344321L</dni>
                     <puesto>Vendedor</puesto>
-                    <telefono>635 678 901</telefono>
+                    <telefono>635678901</telefono>
                     <correo>antonio.vazquez@valenciaautos.com</correo>
                     <sueldo>25000.0</sueldo>
                 </empleado>
@@ -436,4 +444,5 @@
             <telefono>961234567</telefono>
         </sucursal>
     </sucursales>
+    <nombre>Alea Motors</nombre>
 </concesionario>
