@@ -4,13 +4,11 @@
  */
 package Modelo.Clases;
 
-import java.util.Date;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-@XmlType(propOrder = { "id", "nombre", "apellidos", "dni", "puesto", "telefono", "correo", "sueldo", "fechaContrato" })
+@XmlType(propOrder = { "id", "nombre", "apellidos", "dni", "puesto", "telefono", "correo", "sueldo"})
 public class Empleado {
 
     private int id;
@@ -18,14 +16,18 @@ public class Empleado {
     private String apellidos;
     private String dni;
     private String puesto;
-    private String telefono;
+    private int telefono;
     private String correo;
     private double sueldo;
-    private Date fechaContrato;
+    
     
 
-    public Empleado(int id, String nombre, String apellidos, String dni, String puesto, String telefono, String correo, double sueldo, Date fechaContrato) {
-        this.id = id;
+    public Empleado() {
+    }
+    
+
+    
+    public Empleado(String nombre, String apellidos, String dni, String puesto, int telefono, String correo, double sueldo) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
@@ -33,10 +35,10 @@ public class Empleado {
         this.telefono = telefono;
         this.correo = correo;
         this.sueldo = sueldo;
-        this.fechaContrato = fechaContrato;
+  
     }    
 
-    @XmlAttribute
+    @XmlAttribute(name = "id")
     public int getId() {
         return id;
     }
@@ -45,7 +47,7 @@ public class Empleado {
         this.id = id;
     }
 
-    @XmlElement
+    @XmlElement(name = "nombre")
     public String getNombre() {
         return nombre;
     }
@@ -54,7 +56,7 @@ public class Empleado {
         this.nombre = nombre;
     }
 
-    @XmlElement
+    @XmlElement(name = "apellidos")
     public String getApellidos() {
         return apellidos;
     }
@@ -63,7 +65,7 @@ public class Empleado {
         this.apellidos = apellidos;
     }
 
-    @XmlElement
+    @XmlElement(name = "dni")
     public String getDni() {
         return dni;
     }
@@ -72,7 +74,7 @@ public class Empleado {
         this.dni = dni;
     }
 
-    @XmlElement
+    @XmlElement(name = "puesto")
     public String getPuesto() {
         return puesto;
     }
@@ -81,16 +83,16 @@ public class Empleado {
         this.puesto = puesto;
     }
 
-    @XmlElement
-    public String getTelefono() {
+    @XmlElement(name = "telefono")
+    public int getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
 
-    @XmlElement
+    @XmlElement(name = "correo")
     public String getCorreo() {
         return correo;
     }
@@ -99,7 +101,7 @@ public class Empleado {
         this.correo = correo;
     }
 
-    @XmlElement
+    @XmlElement(name = "sueldo")
     public double getSueldo() {
         return sueldo;
     }
@@ -108,12 +110,4 @@ public class Empleado {
         this.sueldo = sueldo;
     }
 
-    @XmlElement(name = "fecha_contrato")
-    public Date getFechaContrato() {
-        return fechaContrato;
-    }
-
-    public void setFechaContrato(Date fechaContrato) {
-        this.fechaContrato = fechaContrato;
-    }
 }

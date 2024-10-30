@@ -12,9 +12,9 @@ public class Sucursal {
     private String localizacion;
     private int telefono;
     private ArrayList<Coche> listaCoches;
-    private ArrayList<Empleado> listaEmpleados;
+    private ArrayList<Empleado> listaEmpleados; 
 
-    @XmlAttribute
+    @XmlAttribute(name = "id")
     public int getId() {
         return id;
     }
@@ -23,7 +23,7 @@ public class Sucursal {
         this.id = id;
     }
 
-    @XmlElement
+    @XmlElement(name = "jefe")
     public String getJefe() {
         return jefe;
     }
@@ -32,7 +32,7 @@ public class Sucursal {
         this.jefe = jefe;
     }
 
-    @XmlElement
+    @XmlElement(name = "localizacion")
     public String getLocalizacion() {
         return localizacion;
     }
@@ -41,7 +41,7 @@ public class Sucursal {
         this.localizacion = localizacion;
     }
 
-    @XmlElement
+    @XmlElement(name = "telefono")
     public int getTelefono() {
         return telefono;
     }
@@ -70,4 +70,11 @@ public class Sucursal {
         this.listaEmpleados = listaEmpleados;
     }
 
+    @Override
+    public String toString() {
+        return "Sucursal{" + "id=" + id + ", jefe=" + jefe + ", localizacion=" + localizacion + ", telefono=" + telefono + ", listaCoches=" + listaCoches + ", listaEmpleados=" + listaEmpleados + '}';
+    }
+
+    
+    
 }

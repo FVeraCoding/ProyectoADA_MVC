@@ -2,22 +2,21 @@
 package Modelo.Clases;
 
 import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
+@XmlRootElement(name = "concesionario")
 public class Concesionario {
    
     private String nombre;
     private String CEO;
-    private List<Sucursal> listaSucursales = new ArrayList<>();
+    private ArrayList<Sucursal> listaSucursales = new ArrayList<>();
 
     public Concesionario() {
     }
 
-    @XmlElement
+    @XmlElement(name = "nombre")
     public String getNombre() {
         return nombre;
     }
@@ -26,7 +25,7 @@ public class Concesionario {
         this.nombre = nombre;
     }
 
-    @XmlElement
+    @XmlElement(name = "CEO")
     public String getCEO() {
         return CEO;
     }
@@ -37,11 +36,11 @@ public class Concesionario {
 
     @XmlElementWrapper(name = "sucursales")
     @XmlElement(name = "sucursal")
-    public List<Sucursal> getListaSucursales() {
+    public ArrayList<Sucursal> getListaSucursales() {
         return listaSucursales;
     }
 
-    public void setListaSucursales(List<Sucursal> listaSucursales) {
+    public void setListaSucursales(ArrayList<Sucursal> listaSucursales) {
         this.listaSucursales = listaSucursales;
     }    
 }
