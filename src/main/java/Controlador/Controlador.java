@@ -48,6 +48,14 @@ public class Controlador {
             case 2: 
                 agregarEmpleado();
                 break;
+                
+            case 3:
+                mostrarNumeroEmpleados();
+                break;
+                
+            case 4:
+                mostrarNumeroCoches();
+                break;
             case 0:
                 System.out.println("Saliendo del programa...");
                 break;
@@ -55,5 +63,15 @@ public class Controlador {
                 System.out.println("Opción no válida. Inténtalo de nuevo.");
                 break;
         }
+    }
+    
+    public void mostrarNumeroEmpleados() throws JAXBException{
+        int numeroEmpleados = modelo.getNumeroEmpleados(vista.obtenerSucursalID());
+        vista.mostrarNumeroEmpleados(numeroEmpleados);
+    }
+    
+    public void mostrarNumeroCoches() throws JAXBException{
+        int numeroCoches = modelo.getNumeroCoches(vista.obtenerSucursalID());
+        vista.mostrarNumeroCoches(numeroCoches);
     }
 }
