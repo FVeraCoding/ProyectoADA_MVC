@@ -1,9 +1,9 @@
+nuevoMain\nuevoMain.class
 Vista\Vista.class
 Modelo\Clases\Coche.class
 Modelo\Clases\Empleado.class
+Controlador\ControladorFernando.class
 Modelo\Logica\ModeloFernando.class
-Controlador\Controlador.class
-Main\main.class
 Modelo\Logica\Modelo.class
 Modelo\Clases\Concesionario.class
 Modelo\Clases\Sucursal.class

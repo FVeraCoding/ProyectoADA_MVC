@@ -110,4 +110,11 @@ public class Empleado {
         this.sueldo = sueldo;
     }
 
+    @Override
+    public String toString() {
+        return "Empleado: " + "id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", dni=" + dni + ", puesto=" + puesto + ", telefono=" + telefono + ", correo=" + correo + ", sueldo=" + sueldo;
+    }
+    
+    
+
 }

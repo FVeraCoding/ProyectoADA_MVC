@@ -109,4 +109,12 @@ public class Coche {
     public void setCombustible(String combustible) {
         this.combustible = combustible;
     }
+
+    @Override
+    public String toString() {
+        return "Coche: " + "id=" + id + ", marca=" + marca + ", modelo=" + modelo + ", creacion=" + creacion + ", precio=" + precio + ", color=" + color + ", numPuertas=" + numPuertas + ", combustible=" + combustible;
+    }
+    
+    
+    
 }
