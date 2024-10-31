@@ -72,7 +72,7 @@ public class Sucursal {
 
     @Override
     public String toString() {
-        return "Sucursal{" + "id=" + id + ", jefe=" + jefe + ", localizacion=" + localizacion + ", telefono=" + telefono + ", listaCoches=" + listaCoches + ", listaEmpleados=" + listaEmpleados + '}';
+        return "Sucursal:" + "\n id: " + id + "\n jefe: " + jefe + "\n localizacion: " + localizacion + "\n telefono: " + telefono + "\n nº de coches: " + listaCoches.size() + "\n nº de enmpleados: " + listaEmpleados.size();
     }
 
     

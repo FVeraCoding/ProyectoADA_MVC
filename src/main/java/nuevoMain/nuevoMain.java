@@ -1,8 +1,10 @@
 package nuevoMain;
 
 import Controlador.ControladorFernando;
+import Modelo.Clases.Coche;
 import Modelo.Logica.ModeloFernando;
 import Vista.Vista;
+import java.util.ArrayList;     
 
 public class nuevoMain {
 
@@ -15,7 +17,6 @@ public class nuevoMain {
     
             vista.setControlador(controlador);
 
-            
             controlador.iniciar();
             
         } catch (Exception e) {

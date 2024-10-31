@@ -46,6 +46,285 @@ public class ModeloFernando {
         }
     }
 
+    // INSERT
+    public void insertarCoche(Coche coche, int idSucursal) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException, JAXBException {
+
+        Sucursal sucursal = getSucursalSegunID(idSucursal);
+
+        if (sucursal != null) {
+
+            sucursal.getListaCoches().add(coche);
+
+            actualizarXML();
+
+        } else {
+
+        }
+    }
+
+    public void insertarEmpleado(Empleado empleado, int idSucursal) throws JAXBException {
+        Sucursal sucursal = getSucursalSegunID(idSucursal);
+
+        if (sucursal != null) {
+
+            sucursal.getListaEmpleados().add(empleado);
+
+            actualizarXML();
+
+        } else {
+
+        }
+
+    }
+
+    //READ 
+    public int getNumeroCoches(int idSucursal) throws JAXBException {
+        Sucursal sucursal = this.getSucursalSegunID(idSucursal);
+        int numeroCoches = sucursal.getListaCoches().size();
+
+        return numeroCoches;
+    }
+
+    public int getNumeroEmpleados(int idSucursal) throws JAXBException {
+        Sucursal sucursal = this.getSucursalSegunID(idSucursal);
+        int numeroEmpleados = sucursal.getListaEmpleados().size();
+
+        return numeroEmpleados;
+    }
+
+    public Sucursal getSucursalSegunID(int id) throws JAXBException {
+
+        ArrayList<Sucursal> listaSucursales = concesionario.getListaSucursales();
+
+        for (Sucursal sucursal : listaSucursales) {
+            if (sucursal.getId() == id) {
+                return sucursal;
+            }
+        }
+
+        return null;
+    }
+
+    public int getUltimoEmpleadoID() throws XPathExpressionException, SAXException, IOException, ParserConfigurationException {
+        Document doc = getDOM(archivo);
+        XPath xpath = XPathFactory.newInstance().newXPath();
+        String xPathExpression = "//empleado/@id";
+        NodeList nodos = (NodeList) xpath.evaluate(xPathExpression, documento, XPathConstants.NODESET);
+        int ultimoID = Integer.valueOf(nodos.item(nodos.getLength() - 1).getTextContent());
+
+        return ultimoID;
+    }
+
+    public int getUltimoCocheID() throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
+        Document doc = getDOM(archivo);
+        XPath xpath = XPathFactory.newInstance().newXPath();
+        String xPathExpression = "//coche/@id";
+        NodeList nodos = (NodeList) xpath.evaluate(xPathExpression, documento, XPathConstants.NODESET);
+
+        int ultimoID = Integer.valueOf(nodos.item(nodos.getLength() - 1).getTextContent());
+
+        return ultimoID;
+
+    }
+
+    public ArrayList<Coche> getListaCochesConcesionario() throws JAXBException {
+        Concesionario concesionario = deserializarConcesionario();
+        ArrayList<Coche> listaCoches = new ArrayList<>();
+
+        for (Sucursal sucursal : concesionario.getListaSucursales()) {
+
+            for (int i = 0; i < sucursal.getListaCoches().size(); i++) {
+                listaCoches.add(sucursal.getListaCoches().get(i));
+            }
+
+        }
+
+        return listaCoches;
+    }
+
+    public ArrayList<Empleado> getListaEmpleadosConcesionario() throws JAXBException {
+        Concesionario concesionario = deserializarConcesionario();
+        ArrayList<Empleado> listaEmpleados = new ArrayList<>();
+
+        for (Sucursal sucursal : concesionario.getListaSucursales()) {
+
+            for (int i = 0; i < sucursal.getListaEmpleados().size(); i++) {
+                listaEmpleados.add(sucursal.getListaEmpleados().get(i));
+            }
+
+        }
+
+        return listaEmpleados;
+    }
+
+    public Coche getCocheSegunID(int id) throws JAXBException {
+        ArrayList<Coche> listaCoches = this.getListaCochesConcesionario();
+
+        for (Coche coche : listaCoches) {
+            if (coche.getId() == id) {
+                return coche;
+            }
+        }
+
+        return null;
+    }
+
+    public ArrayList<Coche> getListaCochesSegunMarca(String marca) throws JAXBException {
+        ArrayList<Coche> listaCochesGeneral = this.getListaCochesConcesionario();
+        ArrayList<Coche> listaCochesMarca = new ArrayList<>();
+
+        for (Coche coche : listaCochesGeneral) {
+            if (coche.getMarca().equalsIgnoreCase(marca)) {
+                listaCochesMarca.add(coche);
+            }
+        }
+
+        return listaCochesMarca;
+    }
+
+    public ArrayList<Coche> getListaCochesSegunNumeroPuertas(int numeroPuertas) throws JAXBException {
+        ArrayList<Coche> listaCochesGeneral = this.getListaCochesConcesionario();
+        ArrayList<Coche> listaCochesPuertas = new ArrayList<>();
+
+        for (Coche coche : listaCochesGeneral) {
+            if (coche.getNumPuertas() == numeroPuertas) {
+                listaCochesPuertas.add(coche);
+            }
+        }
+
+        return listaCochesPuertas;
+    }
+
+    public ArrayList<Coche> getListaCochesSegunCombustible(String combustible) throws JAXBException {
+        ArrayList<Coche> listaCochesGeneral = this.getListaCochesConcesionario();
+        ArrayList<Coche> listaCochesCombustible = new ArrayList<>();
+
+        for (Coche coche : listaCochesGeneral) {
+            if (coche.getCombustible().equalsIgnoreCase(combustible)) {
+                listaCochesCombustible.add(coche);
+            }
+        }
+
+        return listaCochesCombustible;
+    }
+
+    public ArrayList<Coche> getListaCochesSegunAñoFabricacion(int añoFabricacion) throws JAXBException {
+        ArrayList<Coche> listaCochesGeneral = this.getListaCochesConcesionario();
+        ArrayList<Coche> listaCochesAñoFabricacion = new ArrayList<>();
+
+        for (Coche coche : listaCochesGeneral) {
+            if (coche.getCreacion() == añoFabricacion) {
+                listaCochesAñoFabricacion.add(coche);
+            }
+        }
+
+        return listaCochesAñoFabricacion;
+    }
+
+    public Empleado getEmpleadoSegunID(int id) throws JAXBException {
+        ArrayList<Empleado> listaEmpleadosConcesionario = this.getListaEmpleadosConcesionario();
+
+        for (Empleado empleado : listaEmpleadosConcesionario) {
+            if (empleado.getId() == id) {
+                return empleado;
+            }
+        }
+
+        return null;
+    }
+
+    public ArrayList<Empleado> getEmpleadoSegunPuesto(String puesto) throws JAXBException {
+        ArrayList<Empleado> listaEmpleadosConcesionario = this.getListaEmpleadosConcesionario();
+        ArrayList<Empleado> listaEmpleadosPuesto = new ArrayList<>();
+        
+        for(Empleado empleado : listaEmpleadosConcesionario){
+            if(empleado.getPuesto().equalsIgnoreCase(puesto)){
+                listaEmpleadosPuesto.add(empleado);
+            }
+        }
+        
+        return listaEmpleadosPuesto;
+    }
+    
+    // UPDATE
+    
+    public boolean modificarPrecioCoche(int idCoche, double nuevoPrecio) throws JAXBException{
+        Coche coche = this.getCocheSegunID(idCoche);
+        
+        if(coche!=null){
+            coche.setPrecio(nuevoPrecio);
+            this.actualizarXML();
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
+    
+    public boolean modificarJefeSucursal(int idSucursal, String nuevoJefe) throws JAXBException{
+        Sucursal sucursal = this.getSucursalSegunID(idSucursal);
+        if(sucursal != null){
+            sucursal.setJefe(nuevoJefe);
+            this.actualizarXML();
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
+    
+    public boolean modificarTelefonoSucursal(int idSucursal, int nuevoTelefono) throws JAXBException{
+        Sucursal sucursal = this.getSucursalSegunID(idSucursal);
+        if(sucursal != null){
+            sucursal.setTelefono(nuevoTelefono);
+            this.actualizarXML();
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
+
+    // DELETE
+    public void eliminarEmpleado(int id) throws JAXBException {
+        Concesionario concesionario = this.deserializarConcesionario();
+        ArrayList<Sucursal> listaSucursales = concesionario.getListaSucursales();
+
+        for (Sucursal sucursal : listaSucursales) {
+            ArrayList<Empleado> listaEmpleados = sucursal.getListaEmpleados();
+
+            for (int i = 0; i < listaEmpleados.size(); i++) {
+                if (listaEmpleados.get(i).getId() == id) {
+                    listaEmpleados.remove(i);
+                    actualizarXML();
+
+                    return;
+                }
+            }
+        }
+
+    }
+
+    public void eliminarCoche(int id) throws JAXBException {
+        Concesionario concesionario = this.deserializarConcesionario();
+        ArrayList<Sucursal> listaSucursales = concesionario.getListaSucursales();
+
+        for (Sucursal sucursal : listaSucursales) {
+            ArrayList<Coche> listaCoches = sucursal.getListaCoches();
+
+            for (int i = 0; i < listaCoches.size(); i++) {
+                if (listaCoches.get(i).getId() == id) {
+                    listaCoches.remove(i);
+                    actualizarXML();
+
+                    return;
+                }
+            }
+        }
+
+    }
+
+    //JAXB
     public Document getDOM(File archivo) throws SAXException, IOException, ParserConfigurationException {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder db = dbf.newDocumentBuilder();
@@ -68,133 +347,6 @@ public class ModeloFernando {
         marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
 
         marshaller.marshal(concesionario, archivo);
-    }
-
-    public int getUltimoCocheID() throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
-        Document doc = getDOM(archivo);
-        XPath xpath = XPathFactory.newInstance().newXPath();
-        String xPathExpression = "//coche/@id";
-        NodeList nodos = (NodeList) xpath.evaluate(xPathExpression, documento, XPathConstants.NODESET);
-
-        int ultimoID = Integer.valueOf(nodos.item(nodos.getLength() - 1).getTextContent());
-
-        return ultimoID;
-
-    }
-
-    public int getUltimoEmpleadoID() throws XPathExpressionException, SAXException, IOException, ParserConfigurationException {
-        Document doc = getDOM(archivo);
-        XPath xpath = XPathFactory.newInstance().newXPath();
-        String xPathExpression = "//empleado/@id";
-        NodeList nodos = (NodeList) xpath.evaluate(xPathExpression, documento, XPathConstants.NODESET);
-
-        int ultimoID = Integer.valueOf(nodos.item(nodos.getLength() - 1).getTextContent());
-
-        return ultimoID;
-    }
-
-    public void insertarCoche(Coche coche, int idSucursal) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException, JAXBException {
-
-        Sucursal sucursal = obtenerSucursal(idSucursal);
-
-        if (sucursal != null) {
-
-            sucursal.getListaCoches().add(coche);
-
-            actualizarXML();
-
-            System.out.println("Coche agregado y archivo XML actualizado.");
-
-        } else {
-            System.out.println("Sucursal no encontrada.");
-        }
-    }
-
-    public void insertarEmpleado(Empleado empleado, int idSucursal) throws JAXBException {
-        Sucursal sucursal = obtenerSucursal(idSucursal);
-
-        if (sucursal != null) {
-
-            sucursal.getListaEmpleados().add(empleado);
-
-            actualizarXML();
-
-            System.out.println("Coche agregado y archivo XML actualizado.");
-
-        } else {
-            System.out.println("Sucursal no encontrada.");
-        }
-
-    }
-
-    public int getNumeroCoches(int idSucursal) throws JAXBException {
-        Sucursal sucursal = this.obtenerSucursal(idSucursal);
-        int numeroCoches = sucursal.getListaCoches().size();
-
-        return numeroCoches;
-    }
-
-    public int getNumeroEmpleados(int idSucursal) throws JAXBException {
-        Sucursal sucursal = this.obtenerSucursal(idSucursal);
-        int numeroEmpleados = sucursal.getListaEmpleados().size();
-
-        return numeroEmpleados;
-    }
-
-    public Sucursal obtenerSucursal(int id) throws JAXBException {
-
-        ArrayList<Sucursal> listaSucursales = concesionario.getListaSucursales();
-
-        for (Sucursal sucursal : listaSucursales) {
-            if (sucursal.getId() == id) {
-                return sucursal;
-            }
-        }
-
-        return null;
-
-    }
-    
-    public void eliminarEmpleado(int id) throws JAXBException{
-        Concesionario concesionario = this.deserializarConcesionario();
-        ArrayList<Sucursal> listaSucursales = concesionario.getListaSucursales();
-        
-        for(Sucursal sucursal : listaSucursales){
-            ArrayList<Empleado> listaEmpleados = sucursal.getListaEmpleados();
-            
-            for(int i = 0; i<listaEmpleados.size(); i++){
-                if(listaEmpleados.get(i).getId() == id){
-                    listaEmpleados.remove(i);
-                    actualizarXML();
-                    
-                    System.out.println("Empleado eliminado y archivo XML actualizado.");
-                    return;
-                }
-            }
-        }
-        
-        System.out.println("Empleado no encontrado.");
-    }
-    
-    public void eliminarCoche(int id) throws JAXBException{
-         Concesionario concesionario = this.deserializarConcesionario();
-        ArrayList<Sucursal> listaSucursales = concesionario.getListaSucursales();
-        
-        for(Sucursal sucursal : listaSucursales){
-            ArrayList<Coche> listaCoches = sucursal.getListaCoches();
-            
-            for(int i = 0; i<listaCoches.size(); i++){
-                if(listaCoches.get(i).getId() == id){
-                    listaCoches.remove(i);
-                    actualizarXML();
-                    
-                    System.out.println("Coche eliminado y archivo XML actualizado.");
-                    return;
-                }
-            }
-        }
-        
-        System.out.println("Coche no encontrado.");
     }
 
 }

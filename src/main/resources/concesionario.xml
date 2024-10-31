@@ -3,13 +3,13 @@
     <CEO>Mariana Torres</CEO>
     <sucursales>
         <sucursal id="1">
-            <jefe>Juan Pérez</jefe>
+            <jefe>Andres Guzman</jefe>
             <coches>
                 <coche id="1">
                     <marca>Toyota</marca>
                     <modelo>Corolla</modelo>
                     <creacion>2022</creacion>
-                    <precio>20000.0</precio>
+                    <precio>23000.0</precio>
                     <color>Blanco</color>
                     <num_puertas>4</num_puertas>
                     <combustible>Gasolina</combustible>
@@ -110,25 +110,16 @@
                     <nombre>Ana</nombre>
                     <apellidos>García López</apellidos>
                     <dni>12345678A</dni>
-                    <puesto>Vendedora</puesto>
+                    <puesto>Vendedor/a</puesto>
                     <telefono>611123456</telefono>
                     <correo>ana.garcia@madridautos.com</correo>
                     <sueldo>25000.0</sueldo>
-                </empleado>
-                <empleado id="2">
-                    <nombre>Carlos</nombre>
-                    <apellidos>Martínez Ruiz</apellidos>
-                    <dni>87654321B</dni>
-                    <puesto>Contable</puesto>
-                    <telefono>622234567</telefono>
-                    <correo>carlos.martinez@madridautos.com</correo>
-                    <sueldo>27000.0</sueldo>
                 </empleado>
                 <empleado id="3">
                     <nombre>Elena</nombre>
                     <apellidos>Pérez Gómez</apellidos>
                     <dni>98765432C</dni>
-                    <puesto>Administrativa</puesto>
+                    <puesto>Administrativo/a</puesto>
                     <telefono>633345678</telefono>
                     <correo>elena.perez@madridautos.com</correo>
                     <sueldo>26000.0</sueldo>
@@ -137,7 +128,7 @@
                     <nombre>Fernando</nombre>
                     <apellidos>Sánchez Torres</apellidos>
                     <dni>11223344D</dni>
-                    <puesto>Vendedor</puesto>
+                    <puesto>Vendedor/a</puesto>
                     <telefono>644456789</telefono>
                     <correo>fernando.sanchez@madridautos.com</correo>
                     <sueldo>28000.0</sueldo>
@@ -254,7 +245,7 @@
                     <nombre>Patricia</nombre>
                     <apellidos>Fernández Ruiz</apellidos>
                     <dni>45678901F</dni>
-                    <puesto>Vendedora</puesto>
+                    <puesto>Vendedor/a</puesto>
                     <telefono>611789012</telefono>
                     <correo>patricia.fernandez@barcelonautos.com</correo>
                     <sueldo>26000.0</sueldo>
@@ -272,7 +263,7 @@
                     <nombre>Clara</nombre>
                     <apellidos>Pérez Santos</apellidos>
                     <dni>66778899H</dni>
-                    <puesto>Administrativa</puesto>
+                    <puesto>Administrativo/a</puesto>
                     <telefono>633901234</telefono>
                     <correo>clara.perez@barcelonautos.com</correo>
                     <sueldo>25000.0</sueldo>
@@ -290,7 +281,7 @@
                     <nombre>Alba</nombre>
                     <apellidos>Ramos Salas</apellidos>
                     <dni>11223344K</dni>
-                    <puesto>Vendedora</puesto>
+                    <puesto>Vendedor/a</puesto>
                     <telefono>655123456</telefono>
                     <correo>alba.ramos@barcelonautos.com</correo>
                     <sueldo>23000.0</sueldo>
@@ -398,7 +389,7 @@
                     <nombre>Diego Rodríguez</nombre>
                     <apellidos>Sánchez</apellidos>
                     <dni>77889900H</dni>
-                    <puesto>Vendedor</puesto>
+                    <puesto>Vendedor/a</puesto>
                     <telefono>691234567</telefono>
                     <correo>diego.rodriguez@valenciaautos.com</correo>
                     <sueldo>25000.0</sueldo>
@@ -421,27 +412,18 @@
                     <correo>rafael.martin@valenciaautos.com</correo>
                     <sueldo>28000.0</sueldo>
                 </empleado>
-                <empleado id="14">
-                    <nombre>Sofía</nombre>
-                    <apellidos>Torres Vargas</apellidos>
-                    <dni>66778899K</dni>
-                    <puesto>Administrativa</puesto>
-                    <telefono>624567890</telefono>
-                    <correo>sofia.torres@valenciaautos.com</correo>
-                    <sueldo>26000.0</sueldo>
-                </empleado>
                 <empleado id="15">
                     <nombre>Antonio</nombre>
                     <apellidos>Vazquez Ramírez</apellidos>
                     <dni>12344321L</dni>
-                    <puesto>Vendedor</puesto>
+                    <puesto>Vendedor/a</puesto>
                     <telefono>635678901</telefono>
                     <correo>antonio.vazquez@valenciaautos.com</correo>
                     <sueldo>25000.0</sueldo>
                 </empleado>
             </empleados>
             <localizacion>Valencia, España</localizacion>
-            <telefono>961234567</telefono>
+            <telefono>955009988</telefono>
         </sucursal>
     </sucursales>
     <nombre>Alea Motors</nombre>

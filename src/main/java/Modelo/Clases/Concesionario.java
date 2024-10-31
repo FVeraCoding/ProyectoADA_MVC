@@ -42,5 +42,13 @@ public class Concesionario {
 
     public void setListaSucursales(ArrayList<Sucursal> listaSucursales) {
         this.listaSucursales = listaSucursales;
-    }    
+    }
+
+    @Override
+    public String toString() {
+        return "Concesionario: " + "\n nombre=" + nombre + "\n CEO=" + CEO + "\n Número de sucursales: " + listaSucursales.size();
+    }
+    
+    
+    
 }
