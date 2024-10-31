@@ -61,6 +61,15 @@ public class ModeloFernando {
         return concesionario;
     }
 
+    private void actualizarXML() throws JAXBException {
+        JAXBContext context = JAXBContext.newInstance(Concesionario.class);
+        Marshaller marshaller = context.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
+
+        marshaller.marshal(concesionario, archivo);
+    }
+
     public int getUltimoCocheID() throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
         Document doc = getDOM(archivo);
         XPath xpath = XPathFactory.newInstance().newXPath();
@@ -92,12 +101,8 @@ public class ModeloFernando {
 
             sucursal.getListaCoches().add(coche);
 
-            JAXBContext context = JAXBContext.newInstance(Concesionario.class);
-            Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
+            actualizarXML();
 
-            marshaller.marshal(concesionario, archivo);
             System.out.println("Coche agregado y archivo XML actualizado.");
 
         } else {
@@ -112,12 +117,8 @@ public class ModeloFernando {
 
             sucursal.getListaEmpleados().add(empleado);
 
-            JAXBContext context = JAXBContext.newInstance(Concesionario.class);
-            Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
+            actualizarXML();
 
-            marshaller.marshal(concesionario, archivo);
             System.out.println("Coche agregado y archivo XML actualizado.");
 
         } else {
@@ -125,18 +126,18 @@ public class ModeloFernando {
         }
 
     }
-    
-    public int getNumeroCoches(int idSucursal) throws JAXBException{
+
+    public int getNumeroCoches(int idSucursal) throws JAXBException {
         Sucursal sucursal = this.obtenerSucursal(idSucursal);
         int numeroCoches = sucursal.getListaCoches().size();
-        
+
         return numeroCoches;
     }
-    
-    public int getNumeroEmpleados(int idSucursal) throws JAXBException{
+
+    public int getNumeroEmpleados(int idSucursal) throws JAXBException {
         Sucursal sucursal = this.obtenerSucursal(idSucursal);
         int numeroEmpleados = sucursal.getListaEmpleados().size();
-        
+
         return numeroEmpleados;
     }
 
@@ -154,6 +155,46 @@ public class ModeloFernando {
 
     }
     
+    public void eliminarEmpleado(int id) throws JAXBException{
+        Concesionario concesionario = this.deserializarConcesionario();
+        ArrayList<Sucursal> listaSucursales = concesionario.getListaSucursales();
+        
+        for(Sucursal sucursal : listaSucursales){
+            ArrayList<Empleado> listaEmpleados = sucursal.getListaEmpleados();
+            
+            for(int i = 0; i<listaEmpleados.size(); i++){
+                if(listaEmpleados.get(i).getId() == id){
+                    listaEmpleados.remove(i);
+                    actualizarXML();
+                    
+                    System.out.println("Empleado eliminado y archivo XML actualizado.");
+                    return;
+                }
+            }
+        }
+        
+        System.out.println("Empleado no encontrado.");
+    }
     
+    public void eliminarCoche(int id) throws JAXBException{
+         Concesionario concesionario = this.deserializarConcesionario();
+        ArrayList<Sucursal> listaSucursales = concesionario.getListaSucursales();
+        
+        for(Sucursal sucursal : listaSucursales){
+            ArrayList<Coche> listaCoches = sucursal.getListaCoches();
+            
+            for(int i = 0; i<listaCoches.size(); i++){
+                if(listaCoches.get(i).getId() == id){
+                    listaCoches.remove(i);
+                    actualizarXML();
+                    
+                    System.out.println("Coche eliminado y archivo XML actualizado.");
+                    return;
+                }
+            }
+        }
+        
+        System.out.println("Coche no encontrado.");
+    }
 
 }
