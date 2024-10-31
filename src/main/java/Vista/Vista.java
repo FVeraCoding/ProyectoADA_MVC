@@ -1,21 +1,21 @@
 package Vista;
 
-import Controlador.Controlador; // Aseg√∫rate de importar el controlador
+import Controlador.ControladorFernando; // Aseg√∫rate de importar el controlador
 import Modelo.Clases.Coche;
 import Modelo.Clases.Empleado;
+import Modelo.Clases.Sucursal;
 import java.util.Scanner;
 
 public class Vista {
     private Scanner sc = new Scanner(System.in);
-    private Controlador controlador; // Referencia al controlador
-
+    private ControladorFernando controlador;
     public Vista() {
     }
 
     
     
-    public Vista(Controlador controlador) {
-        this.controlador = controlador; // Inicializa el controlador
+    public Vista(ControladorFernando controlador) {
+        this.controlador = controlador;
     }
 
     public void bienvenida() {
@@ -26,17 +26,21 @@ public class Vista {
         int opcion = -1;
         
         while(opcion != 0){
-            System.out.println("Elige una opci√≥n: ");
-            System.out.println("1. Agregar coche");
-            System.out.println("2. Agregar nuevo empleado");
-            System.out.println("3. Mostrar n√∫mero de empleados");
-            System.out.println("4. Mostrar n√∫mero de coches");
+            System.out.println("Elige una opciÛn: ");
+            System.out.println("1. Agregar coche a una sucursal.");
+            System.out.println("2. Agregar nuevo empleado a una sucursal.");
+            System.out.println("3. Mostrar el n˙mero de empleados de una sucursal");
+            System.out.println("4. Mostrar el n˙mero de coches de una sucursal");
+            System.out.println("5. Mostrar los Empleados de una sucursal");
+            System.out.println("6. Mostrar los Coches de una sucursal");
+            System.out.println("7. Eliminar Empleado de una sucursal.");
+            System.out.println("8. Eliminar Coche de una sucursal.");
             System.out.println("0. Salir");
             opcion = sc.nextInt();
-            sc.nextLine(); // Consumir el salto de l√≠nea
+            sc.nextLine(); 
             
             try {
-                controlador.ejecutarOpcion(opcion); // Llama al controlador para ejecutar la opci√≥n
+                controlador.ejecutarOpcion(opcion); 
             } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
             }
@@ -64,7 +68,7 @@ public class Vista {
         System.out.println("Introduce el modelo del coche: ");
         String modelo = sc.nextLine();
         
-        System.out.println("Introduce el a√±o de creaci√≥n del coche: ");
+        System.out.println("Introduce el aÒo de creaciÛn del coche: ");
         int creacion = sc.nextInt();
         
         System.out.println("Introduce el precio de mercado del coche: ");
@@ -74,7 +78,7 @@ public class Vista {
         System.out.println("Introduce el color del coche: ");
         String color = sc.nextLine();
         
-        System.out.println("Introduce el n√∫mero de puertas del coche: ");
+        System.out.println("Introduce el n˙mero de puertas del coche: ");
         int numPuertas = sc.nextInt();
         sc.nextLine();
         
@@ -98,11 +102,11 @@ public class Vista {
         System.out.println("Introduce el puesto del nuevo empleado: ");
         String puesto = sc.nextLine();
         
-        System.out.println("Introduce el tel√©fono del nuevo empleado: ");
+        System.out.println("Introduce el telÈfono del nuevo empleado: ");
         int telefono = sc.nextInt();
         sc.nextLine();
         
-        System.out.println("Introduce el correo electr√≥nico del nuevo empleado: ");
+        System.out.println("Introduce el correo electrÛnico del nuevo empleado: ");
         String correo = sc.nextLine();
         
         System.out.println("Introduce el sueldo del nuevo empleado: ");
@@ -113,6 +117,29 @@ public class Vista {
         return empleado;
     }
     
+    
+    public void mostrarInformacionCoches(Sucursal sucursal){
+        if(sucursal != null){
+            System.out.println("Lista de empleados de la sucursal de "+sucursal.getLocalizacion()+":");
+            for(Coche coche : sucursal.getListaCoches()){
+                System.out.println(coche.toString());
+            }
+        }else{
+            System.out.println("La sucursal seleccionada no ha sido encontrada.");
+        }
+    }
+    
+    public void mostrarInformacionEmpleados(Sucursal sucursal){
+        if(sucursal != null){
+            System.out.println("Lista de empleados de la sucursal de "+sucursal.getLocalizacion()+":");
+            for(Empleado empleado : sucursal.getListaEmpleados()){
+                System.out.println(empleado.toString());
+            }
+        }else{
+            System.out.println("La sucursal seleccionada no ha sido encontrada.");
+        }
+    }
+    
     public void mostrarNumeroEmpleados(int numeroEmpleados){
         System.out.println("La sucursal tiene "+numeroEmpleados + " empleados.");
     }
@@ -120,14 +147,31 @@ public class Vista {
     public void mostrarNumeroCoches(int numeroCoches){
         System.out.println("La sucursal tiene "+numeroCoches+" coches.");
     }
+    
+    public int obtenerEmpleadoID(){
+        System.out.println("Introduce el ID del empleado: ");
+        int id = sc.nextInt();
+        
+        return id;
+    }
+    
+    public int obtenerCocheID(){
+        System.out.println("Introduce el ID del coche: ");
+        int id = sc.nextInt();
+        return id;
+    }
+    
+    
 
-    public Controlador getControlador() {
+    public ControladorFernando getControlador() {
         return controlador;
     }
 
-    public void setControlador(Controlador controlador) {
+    public void setControlador(ControladorFernando controlador) {
         this.controlador = controlador;
     }
+    
+    
     
     
 }
