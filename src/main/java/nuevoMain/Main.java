@@ -1,10 +1,8 @@
 package nuevoMain;
 
 import Controlador.Controlador;
-import Modelo.Clases.Coche;
 import Modelo.Logica.Modelo;
 import Vista.Vista;
-import java.util.ArrayList;     
 
 public class Main {
 
