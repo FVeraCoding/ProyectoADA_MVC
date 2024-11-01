@@ -119,10 +119,10 @@
                     <nombre>Elena</nombre>
                     <apellidos>Pérez Gómez</apellidos>
                     <dni>98765432C</dni>
-                    <puesto>Administrativo/a</puesto>
-                    <telefono>633345678</telefono>
+                    <puesto>Vendedor/a</puesto>
+                    <telefono>700000000</telefono>
                     <correo>elena.perez@madridautos.com</correo>
-                    <sueldo>26000.0</sueldo>
+                    <sueldo>28000.0</sueldo>
                 </empleado>
                 <empleado id="4">
                     <nombre>Fernando</nombre>
@@ -141,6 +141,15 @@
                     <telefono>655567890</telefono>
                     <correo>isabel.gomez@madridautos.com</correo>
                     <sueldo>30000.0</sueldo>
+                </empleado>
+                <empleado id="17">
+                    <nombre>Elena</nombre>
+                    <apellidos>Sanchez</apellidos>
+                    <dni>76589065N</dni>
+                    <puesto>Marketing</puesto>
+                    <telefono>728918263</telefono>
+                    <correo>elenasanches@gmail.com</correo>
+                    <sueldo>21000.0</sueldo>
                 </empleado>
             </empleados>
             <localizacion>Madrid, España</localizacion>
@@ -239,6 +248,15 @@
                     <num_puertas>4</num_puertas>
                     <combustible>Gasolina</combustible>
                 </coche>
+                <coche id="32">
+                    <marca>Peugeot</marca>
+                    <modelo>206</modelo>
+                    <creacion>2007</creacion>
+                    <precio>7600.0</precio>
+                    <color>Azul</color>
+                    <num_puertas>4</num_puertas>
+                    <combustible>Gasolina</combustible>
+                </coche>
             </coches>
             <empleados>
                 <empleado id="6">
@@ -284,6 +302,15 @@
                     <puesto>Vendedor/a</puesto>
                     <telefono>655123456</telefono>
                     <correo>alba.ramos@barcelonautos.com</correo>
+                    <sueldo>23000.0</sueldo>
+                </empleado>
+                <empleado id="16">
+                    <nombre>Fernando</nombre>
+                    <apellidos>Vera</apellidos>
+                    <dni>87656782A</dni>
+                    <puesto>Contable</puesto>
+                    <telefono>765432123</telefono>
+                    <correo>fernandovera@gmail.com</correo>
                     <sueldo>23000.0</sueldo>
                 </empleado>
             </empleados>
@@ -382,6 +409,15 @@
                     <color>Negro</color>
                     <num_puertas>4</num_puertas>
                     <combustible>Eléctrico</combustible>
+                </coche>
+                <coche id="31">
+                    <marca>Seat</marca>
+                    <modelo>León</modelo>
+                    <creacion>2003</creacion>
+                    <precio>12000.0</precio>
+                    <color>Rojo</color>
+                    <num_puertas>4</num_puertas>
+                    <combustible>Gasolina</combustible>
                 </coche>
             </coches>
             <empleados>

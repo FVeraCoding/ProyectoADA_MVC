@@ -4,7 +4,7 @@ import Modelo.Clases.Coche;
 import Modelo.Clases.Concesionario;
 import Modelo.Clases.Empleado;
 import Modelo.Clases.Sucursal;
-import Modelo.Logica.ModeloFernando;
+import Modelo.Logica.Modelo;
 import Vista.Vista;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,11 +13,11 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPathExpressionException;
 import org.xml.sax.SAXException;
 
-public class ControladorFernando {
-    private ModeloFernando modelo;
+public class Controlador {
+    private Modelo modelo;
     private Vista vista;
 
-    public ControladorFernando(ModeloFernando modelo, Vista vista) {
+    public Controlador(Modelo modelo, Vista vista) {
         this.modelo = modelo;
         this.vista = vista;
     }
@@ -74,6 +74,7 @@ public class ControladorFernando {
         String marca = vista.obtenerMarcaCoche();
         ArrayList<Coche> listaCochesMarca = modelo.getListaCochesSegunMarca(marca);
         vista.mostrarCochesPorMarca(listaCochesMarca);
+        
     }
     
     public void mostrarInfoCochesPorPuertas() throws JAXBException{
@@ -173,7 +174,7 @@ public class ControladorFernando {
     
     public void modificarTelefonoSucursal() throws JAXBException{
         int id = vista.obtenerSucursalID();
-        int nuevoTelefono = vista.obtenerNuevoTelefonoSucursal();
+        int nuevoTelefono = vista.obtenerNuevoTelefono();
         modelo.modificarTelefonoSucursal(id, nuevoTelefono);
         vista.mostrarMensajeTelefonoModificado();
     }
@@ -195,5 +196,63 @@ public class ControladorFernando {
         }else{
             vista.mostrarMensajeErrorModificarPrecioCoche();
         }
+    }
+    
+    public void modificarPuestoEmpleado() throws JAXBException{
+        int idEmpleado = vista.obtenerEmpleadoID();
+        String nuevoPuesto = vista.obtenerEmpleadoSegunPuesto();
+        boolean exito;
+        
+        exito = modelo.modificarPuestoEmpleado(idEmpleado, nuevoPuesto);
+        
+        if(exito == true){
+            vista.mostrarMensajePuestoEmpleadoModificado();
+        }else{
+            vista.mostrarMensajeErrorModificarPuestoEmpleado();
+        }
+    }
+    
+    public void modificarTelefonoEmpleado() throws JAXBException{
+        int idEmpleado = vista.obtenerEmpleadoID();
+        int nuevoTelefono = vista.obtenerNuevoTelefono();
+        boolean exito;
+        
+        exito = modelo.modificarTelefonoEmpleado(idEmpleado, nuevoTelefono);
+        
+        if(exito == true){
+            vista.mostrarMensajeTelefonoModificado();
+        }else{
+            vista.mostrarMensajeErrorModificarTelefonoEmpleado();
+        }
+    }
+    
+    public void modificarCorreoEmpleado() throws JAXBException{
+        int idEmpleado = vista.obtenerEmpleadoID();
+        String nuevoCorreo = vista.obtenerNuevoCorreo();
+        boolean exito;
+        
+        exito = modelo.modificarCorreoEmpleado(idEmpleado, nuevoCorreo);
+        
+        if(exito == true){
+            vista.mostrarMensajeCorreoModificado();
+        }else{
+            vista.mostrarMensajeErrorModificarCorreo();
+        }
+    }
+    
+    public void modificarSueldoEmpleado() throws JAXBException{
+        int idEmpleado = vista.obtenerEmpleadoID();
+        double nuevoSueldo = vista.obtenerNuevoSueldo();
+        boolean exito;
+        
+        exito = modelo.modificarSueldoEmpleado(idEmpleado, nuevoSueldo);
+        
+        if(exito == true){
+            vista.mostrarMensajeSueldoModificado();
+        }else{
+            vista.mostrarMensajeErrorModificarSueldo();
+        }
+        
+        
     }
 }

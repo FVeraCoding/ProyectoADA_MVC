@@ -1,10 +1,11 @@
 package Vista;
 
-import Controlador.ControladorFernando; // AsegÃºrate de importar el controlador
+import Controlador.Controlador; // AsegÃºrate de importar el controlador
 import Modelo.Clases.Coche;
 import Modelo.Clases.Concesionario;
 import Modelo.Clases.Empleado;
 import Modelo.Clases.Sucursal;
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.Scanner;
 import javax.xml.bind.JAXBException;
@@ -12,17 +13,17 @@ import javax.xml.bind.JAXBException;
 public class Vista {
 
     private Scanner sc = new Scanner(System.in);
-    private ControladorFernando controlador;
+    private Controlador controlador;
 
     public Vista() {
     }
 
-    public Vista(ControladorFernando controlador) {
+    public Vista(Controlador controlador) {
         this.controlador = controlador;
     }
 
     public void bienvenida() {
-        System.out.println("Bienvenido/a al Concesionario Alea Motors.");
+        System.out.println("--- Bienvenido/a al Concesionario Alea Motors ---");
     }
 
     //MENÚS
@@ -46,9 +47,9 @@ public class Vista {
             }
         }
     }
-    
-    public void menuModificar(){
-         int opcion = -1;
+
+    public void menuModificar() {
+        int opcion = -1;
 
         while (opcion != 0) {
             System.out.println("¿Qué deseas modificar?");
@@ -69,7 +70,7 @@ public class Vista {
                         this.menuModificarCoche();
                         break;
                     case 3:
-                        //this.menuModificarEmpleado();
+                        this.menuModificarEmpleado();
                         break;
                     case 0:
                         break;
@@ -81,8 +82,8 @@ public class Vista {
             }
         }
     }
-    
-    /*public void menuModificarEmpleado(){
+
+    public void menuModificarEmpleado() {
         int opcion = -1;
 
         while (opcion != 0) {
@@ -120,9 +121,9 @@ public class Vista {
             }
 
         }
-    }*/
-    
-    public void menuModificarCoche(){
+    }
+
+    public void menuModificarCoche() {
         int opcion = -1;
 
         while (opcion != 0) {
@@ -149,8 +150,8 @@ public class Vista {
 
         }
     }
-    
-    public void menuModificarSucursal(){
+
+    public void menuModificarSucursal() {
         int opcion = -1;
 
         while (opcion != 0) {
@@ -387,8 +388,8 @@ public class Vista {
         }
 
     }
-    
-    public void menuEliminar(){
+
+    public void menuEliminar() {
         int opcion = -1;
 
         while (opcion != 0) {
@@ -421,72 +422,213 @@ public class Vista {
 
     // CREAR COCHE Y CREAR EMPLEADO.
     public Coche nuevoCoche() {
-        System.out.println("Introduce la marca del coche: ");
-        String marca = sc.nextLine();
+        String marca, modelo, color, combustible;
+        int creacion, numPuertas;
+        double precio;
 
-        System.out.println("Introduce el modelo del coche: ");
-        String modelo = sc.nextLine();
+        // Validación de la marca
+        while (true) {
+            System.out.println("Introduce la marca del coche: ");
+            marca = sc.nextLine();
+            if (!marca.trim().isEmpty()) {
+                break;
+            } else {
+                System.out.println("La marca no puede estar vacía.");
+            }
+        }
 
-        System.out.println("Introduce el año de creación del coche: ");
-        int creacion = sc.nextInt();
+        // Validación del modelo
+        while (true) {
+            System.out.println("Introduce el modelo del coche: ");
+            modelo = sc.nextLine();
+            if (!modelo.trim().isEmpty()) {
+                break;
+            } else {
+                System.out.println("El modelo no puede estar vacío.");
+            }
+        }
 
-        System.out.println("Introduce el precio de mercado del coche: ");
-        double precio = sc.nextDouble();
-        sc.nextLine();
+        // Validación del año de creación (entre 1886 y el año actual)
+        int currentYear = Year.now().getValue();
+        while (true) {
+            System.out.println("Introduce el año de creación del coche: ");
+            creacion = sc.nextInt();
+            sc.nextLine(); // Limpiar buffer
+            if (creacion >= 1886 && creacion <= currentYear) {
+                break;
+            } else {
+                System.out.println("Año inválido. Debe estar entre 1886 y " + currentYear + ".");
+            }
+        }
 
-        System.out.println("Introduce el color del coche: ");
-        String color = sc.nextLine();
+        // Validación del precio (debe ser mayor a 0)
+        while (true) {
+            System.out.println("Introduce el precio de mercado del coche: ");
+            precio = sc.nextDouble();
+            sc.nextLine(); // Limpiar buffer
+            if (precio > 0) {
+                break;
+            } else {
+                System.out.println("Precio inválido. Debe ser mayor a 0.");
+            }
+        }
 
-        System.out.println("Introduce el número de puertas del coche: ");
-        int numPuertas = sc.nextInt();
-        sc.nextLine();
+        // Validación del color
+        while (true) {
+            System.out.println("Introduce el color del coche: ");
+            color = sc.nextLine();
+            if (!color.trim().isEmpty()) {
+                break;
+            } else {
+                System.out.println("El color no puede estar vacío.");
+            }
+        }
 
-        System.out.println("Introduce el tipo de combustible del coche: ");
-        String combustible = sc.nextLine();
+        // Validación del número de puertas (debe ser al menos 2)
+        while (true) {
+            System.out.println("Introduce el número de puertas del coche: ");
+            numPuertas = sc.nextInt();
+            sc.nextLine(); // Limpiar buffer
+            if (numPuertas >= 2) {
+                break;
+            } else {
+                System.out.println("Número de puertas inválido. Debe ser al menos 2.");
+            }
+        }
 
+        // Validación del tipo de combustible (debe ser uno de los valores permitidos)
+        while (true) {
+            System.out.println("Introduce el tipo de combustible del coche (Gasolina, Diesel, Híbrido, Eléctrico): ");
+            combustible = sc.nextLine();
+            if (combustible.equalsIgnoreCase("Gasolina")
+                    || combustible.equalsIgnoreCase("Diesel")
+                    || combustible.equalsIgnoreCase("Híbrido")
+                    || combustible.equalsIgnoreCase("Eléctrico")) {
+                break;
+            } else {
+                System.out.println("Tipo de combustible inválido. Debe ser uno de: Gasolina, Diesel, Híbrido, Eléctrico.");
+            }
+        }
+
+        // Crear y devolver el objeto Coche
         Coche coche = new Coche(marca, modelo, creacion, precio, color, numPuertas, combustible);
         return coche;
     }
 
     public Empleado nuevoEmpleado() {
-        System.out.println("Introduce el nombre del nuevo empleado: ");
-        String nombre = sc.nextLine();
+        String nombre, apellidos, dni, puesto, correo;
+        int telefono;
+        double sueldo;
 
-        System.out.println("Introduce los apellidos del nuevo empleado: ");
-        String apellidos = sc.nextLine();
+        // Validación del nombre
+        while (true) {
+            System.out.println("Introduce el nombre del nuevo empleado: ");
+            nombre = sc.nextLine();
+            if (!nombre.trim().isEmpty()) {
+                break;
+            } else {
+                System.out.println("El nombre no puede estar vacío.");
+            }
+        }
 
-        System.out.println("Introduce el DNI del nuevo empleado: ");
-        String dni = sc.nextLine();
+        // Validación de los apellidos
+        while (true) {
+            System.out.println("Introduce los apellidos del nuevo empleado: ");
+            apellidos = sc.nextLine();
+            if (!apellidos.trim().isEmpty()) {
+                break;
+            } else {
+                System.out.println("Los apellidos no pueden estar vacíos.");
+            }
+        }
 
-        System.out.println("Introduce el puesto del nuevo empleado: ");
-        String puesto = sc.nextLine();
+        // Validación del DNI (formato: 8 dígitos seguidos de una letra, como "12345678A")
+        while (true) {
+            System.out.println("Introduce el DNI del nuevo empleado: ");
+            dni = sc.nextLine();
+            if (dni.matches("\\d{8}[A-Za-z]")) {
+                break;
+            } else {
+                System.out.println("DNI inválido. Debe tener 8 dígitos seguidos de una letra.");
+            }
+        }
 
-        System.out.println("Introduce el teléfono del nuevo empleado: ");
-        int telefono = sc.nextInt();
-        sc.nextLine();
+        // Validación del puesto (debe ser un número entre 1 y 4)
+        while (true) {
+            System.out.println("Introduce el puesto del nuevo empleado (1: Administrativo/a, 2: Vendedor/a, 3: Contable, 4: Marketing): ");
+            String input = sc.nextLine();
 
-        System.out.println("Introduce el correo electrónico del nuevo empleado: ");
-        String correo = sc.nextLine();
+            switch (input) {
+                case "1":
+                    puesto = "Administrativo/a";
+                    break;
+                case "2":
+                    puesto = "Vendedor/a";
+                    break;
+                case "3":
+                    puesto = "Contable";
+                    break;
+                case "4":
+                    puesto = "Marketing";
+                    break;
+                default:
+                    System.out.println("Puesto inválido. Debe escoger un número entre 1 y 4.");
+                    continue; // Si el input es inválido, vuelve a pedir
+            }
+            break; // Si el puesto es válido, salimos del bucle
+        }
 
-        System.out.println("Introduce el sueldo del nuevo empleado: ");
-        double sueldo = sc.nextDouble();
+        // Validación del teléfono (debe tener exactamente 9 dígitos)
+        while (true) {
+            System.out.println("Introduce el teléfono del nuevo empleado: ");
+            telefono = sc.nextInt();
+            sc.nextLine(); // Limpiar buffer
+            if (String.valueOf(telefono).length() == 9) {
+                break;
+            } else {
+                System.out.println("Teléfono inválido. Debe tener exactamente 9 dígitos.");
+            }
+        }
 
+        // Validación del correo electrónico (debe contener "@" y terminar en ".com")
+        while (true) {
+            System.out.println("Introduce el correo electrónico del nuevo empleado: ");
+            correo = sc.nextLine();
+            if (correo.matches("^[\\w\\.-]+@[\\w\\.-]+\\.com$")) {
+                break;
+            } else {
+                System.out.println("Correo electrónico inválido. Debe contener '@' y terminar en '.com'.");
+            }
+        }
+
+        // Validación del sueldo (debe ser mayor que 0)
+        while (true) {
+            System.out.println("Introduce el sueldo del nuevo empleado: ");
+            sueldo = sc.nextDouble();
+            sc.nextLine(); // Limpiar buffer
+            if (sueldo > 0) {
+                break;
+            } else {
+                System.out.println("Sueldo inválido. Debe ser mayor que 0.");
+            }
+        }
+
+        // Crear y devolver el objeto Empleado
         Empleado empleado = new Empleado(nombre, apellidos, dni, puesto, telefono, correo, sueldo);
-
         return empleado;
     }
 
     // MOSTRAR INFORMACION AL USUARIO
-    public void mostrarEmpleadosSegunPuesto(ArrayList<Empleado> listaEmpleadosPuesto){
-        if(!listaEmpleadosPuesto.isEmpty()){
-            for(Empleado empleado : listaEmpleadosPuesto){
+    public void mostrarEmpleadosSegunPuesto(ArrayList<Empleado> listaEmpleadosPuesto) {
+        if (!listaEmpleadosPuesto.isEmpty()) {
+            for (Empleado empleado : listaEmpleadosPuesto) {
                 System.out.println(empleado.toString());
             }
-        }else{
+        } else {
             System.out.println("No se ha encontrado ningún empleado en el puesto especificado.");
         }
     }
-    
+
     public void mostrarInfoGeneralConcesionario(Concesionario concesionario) {
         System.out.println(concesionario.toString());
     }
@@ -585,63 +727,138 @@ public class Vista {
             System.out.println("No se ha encontrado ningún empleado con ese ID");
         }
     }
-    
-    public void mostrarMensajeEmpleadoEliminado(){
+
+    public void mostrarMensajeEmpleadoEliminado() {
         System.out.println("El empleado se ha eliminado correctamente.");
     }
-    
-    public void mostrarMensajeCocheEliminado(){
+
+    public void mostrarMensajeCocheEliminado() {
         System.out.println("El coche ha sido eliminado correctamente.");
     }
-    
-    public void mostrarMensajeTelefonoModificado(){
+
+    public void mostrarMensajeTelefonoModificado() {
         System.out.println("El teléfono ha sido modificado correctamente.");
     }
-    
-    public void mostrarMensajeJefeModificado(){
+
+    public void mostrarMensajeJefeModificado() {
         System.out.println("El jefe ha sido modificado correctamente.");
     }
-    
-    public void mostrarMensajePrecioCocheModificado(){
+
+    public void mostrarMensajePrecioCocheModificado() {
         System.out.println("El precio del coche ha sido modificado correctamente.");
     }
-    
-    public void mostrarMensajeErrorModificarPrecioCoche(){
+
+    public void mostrarMensajeErrorModificarPrecioCoche() {
         System.out.println("El precio del coche no se ha podido modificar porque este no existe.");
     }
-    
-    
+
+    public void mostrarMensajePuestoEmpleadoModificado() {
+        System.out.println("El puesto ha sido modificado correctamente.");
+    }
+
+    public void mostrarMensajeErrorModificarPuestoEmpleado() {
+        System.out.println("No se ha modificado el puesto ya que no existe un empleado con el ID introducido.");
+    }
+
+    public void mostrarMensajeErrorModificarTelefonoEmpleado() {
+        System.out.println("No se ha podido actualizar el teléfono ya que no existe un empleado con el ID introducido.");
+    }
+
+    public void mostrarMensajeCorreoModificado() {
+        System.out.println("El correo se ha modificado correctamente.");
+    }
+
+    public void mostrarMensajeErrorModificarCorreo() {
+        System.out.println("No se ha podido modificar el correo ya que no existe un empleado con el ID introducido.");
+    }
+
+    public void mostrarMensajeSueldoModificado() {
+        System.out.println("El sueldo se ha modificado correctamente.");
+    }
+
+    public void mostrarMensajeErrorModificarSueldo() {
+        System.out.println("No se ha podido modificar el sueldo ya que no existe un empleado con el ID introducido.");
+    }
+
+    public void mostrarMensajeMarcaCocheNoEncontrada() {
+        System.out.println("No se ha encontrado ningún coche de la marca introducida.");
+    }
 
     // OBTENER INFORMACION DEL USUARIO
-    
-    public double obtenerNuevoPrecioCoche(){
+    public double obtenerNuevoSueldo() {
+        System.out.println("Escribe el nuevo sueldo: ");
+        double nuevoSueldo = sc.nextDouble();
+        sc.nextLine();
+
+        return nuevoSueldo;
+    }
+
+    public String obtenerNuevoCorreo() {
+        String nuevoCorreo;
+
+        while (true) {
+            System.out.println("Escribe el nuevo correo: ");
+            nuevoCorreo = sc.nextLine();
+
+            if (nuevoCorreo.matches("^[\\w\\.-]+@[\\w\\.-]+\\.com$")) {
+                break;
+            } else {
+                System.out.println("Correo inválido. Asegúrate de que contenga '@' y termine en '.com'.");
+            }
+        }
+
+        return nuevoCorreo;
+    }
+
+    public double obtenerNuevoPrecioCoche() {
         System.out.println("Escribe el nuevo precio del coche: ");
         double nuevoPrecio = sc.nextDouble();
         sc.nextLine();
-        
+
         return nuevoPrecio;
     }
-    
-    public String obtenerNuevoJefeSucursal(){
-        System.out.println("Escribe el nuevo jefe: ");
-        String nuevoJefe = sc.nextLine();
+
+    public String obtenerNuevoJefeSucursal() {
+        String nuevoJefe;
+
+        while (true) {
+            System.out.println("Escribe el nombre del nuevo jefe: ");
+            nuevoJefe = sc.nextLine();
+
+            if (!nuevoJefe.trim().isEmpty()) {
+                break;
+            } else {
+                System.out.println("El nombre no puede estar vacío. Por favor, ingresa un nombre válido.");
+            }
+        }
+
         return nuevoJefe;
     }
-    
-    public int obtenerNuevoTelefonoSucursal(){
-        System.out.println("Introduce el nuevo teléfono: ");
-        int nuevoTelefono = sc.nextInt();
-        sc.nextLine();
-        
+
+    public int obtenerNuevoTelefono() {
+        int nuevoTelefono;
+
+        while (true) {
+            System.out.println("Introduce el nuevo teléfono (9 cifras): ");
+            nuevoTelefono = sc.nextInt();
+            sc.nextLine();
+
+            if (String.valueOf(nuevoTelefono).length() == 9) {
+                break;
+            } else {
+                System.out.println("Número inválido. Asegúrate de que tenga exactamente 9 cifras.");
+            }
+        }
+
         return nuevoTelefono;
     }
-    
-    public String obtenerEmpleadoSegunPuesto(){
-         String puesto = "";
+
+    public String obtenerEmpleadoSegunPuesto() {
+        String puesto = "";
         int opcion = -1;
 
         while (opcion < 1 || opcion > 4) {
-            System.out.println("Indica el puesto que quieres buscar: ");
+            System.out.println("Indica el puesto: ");
             System.out.println("1. Vendedor/a");
             System.out.println("2. Contable");
             System.out.println("3. Administrativo/a");
@@ -668,7 +885,7 @@ public class Vista {
         return puesto;
 
     }
-    
+
     public int obtenerAñoFabricacion() {
         System.out.println("Introduce el año de fabricación del coche: ");
         int añoFabricacion = sc.nextInt();
@@ -710,8 +927,19 @@ public class Vista {
     }
 
     public int obtenerNumeroPuertas() {
-        System.out.println("Introduce el número de puertas: ");
-        int numPuertas = sc.nextInt();
+        int numPuertas;
+
+        while (true) {
+            System.out.println("Introduce el número de puertas: ");
+            numPuertas = sc.nextInt();
+            sc.nextLine();
+
+            if (numPuertas >= 2) {
+                break;
+            } else {
+                System.out.println("Número de puertas inválido. Debe ser al menos 2.");
+            }
+        }
 
         return numPuertas;
     }
@@ -741,6 +969,7 @@ public class Vista {
     public int obtenerEmpleadoID() {
         System.out.println("Introduce el ID del empleado: ");
         int id = sc.nextInt();
+        sc.nextLine();
 
         return id;
     }
@@ -751,11 +980,11 @@ public class Vista {
         return id;
     }
 
-    public ControladorFernando getControlador() {
+    public Controlador getControlador() {
         return controlador;
     }
 
-    public void setControlador(ControladorFernando controlador) {
+    public void setControlador(Controlador controlador) {
         this.controlador = controlador;
     }
 

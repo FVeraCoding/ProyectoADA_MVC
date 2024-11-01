@@ -1,22 +1,23 @@
 package nuevoMain;
 
-import Controlador.ControladorFernando;
+import Controlador.Controlador;
 import Modelo.Clases.Coche;
-import Modelo.Logica.ModeloFernando;
+import Modelo.Logica.Modelo;
 import Vista.Vista;
 import java.util.ArrayList;     
 
-public class nuevoMain {
+public class Main {
 
     public static void main(String[] args) {
         try {
             
-            ModeloFernando modelo = new ModeloFernando();
+            Modelo modelo = new Modelo();
             Vista vista = new Vista(); 
-            ControladorFernando controlador = new ControladorFernando(modelo, vista);
+            Controlador controlador = new Controlador(modelo, vista);
     
             vista.setControlador(controlador);
 
+            
             controlador.iniciar();
             
         } catch (Exception e) {
