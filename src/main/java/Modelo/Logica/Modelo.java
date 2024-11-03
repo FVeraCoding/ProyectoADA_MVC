@@ -7,8 +7,6 @@ import Modelo.Clases.Sucursal;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -22,7 +20,6 @@ import org.xml.sax.SAXException;
 
 public class Modelo {
 
-    Document documento;
     File archivo;
     Concesionario concesionario;
 
@@ -31,15 +28,6 @@ public class Modelo {
         this.archivo = new File("src/main/resources/concesionario.xml");
         this.concesionario = this.deserializarConcesionario();
 
-        try {
-            this.documento = getDOM(archivo);
-        } catch (SAXException ex) {
-            Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParserConfigurationException ex) {
-            Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     // INSERT
@@ -382,14 +370,7 @@ public class Modelo {
 
     }
 
-    //JAXB
-    public Document getDOM(File archivo) throws SAXException, IOException, ParserConfigurationException {
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        DocumentBuilder db = dbf.newDocumentBuilder();
-        Document doc = db.parse(archivo);
-        return doc;
-    }
-
+    //JAXB      
     public Concesionario deserializarConcesionario() throws JAXBException {
         JAXBContext context = JAXBContext.newInstance(Concesionario.class);
         Unmarshaller unmarshaller = context.createUnmarshaller();

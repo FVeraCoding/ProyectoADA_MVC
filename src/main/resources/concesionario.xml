@@ -41,15 +41,6 @@
                     <num_puertas>4</num_puertas>
                     <combustible>Híbrido</combustible>
                 </coche>
-                <coche id="5">
-                    <marca>Audi</marca>
-                    <modelo>A4</modelo>
-                    <creacion>2021</creacion>
-                    <precio>40000.0</precio>
-                    <color>Gris</color>
-                    <num_puertas>4</num_puertas>
-                    <combustible>Gasolina</combustible>
-                </coche>
                 <coche id="6">
                     <marca>Peugeot</marca>
                     <modelo>3008</modelo>
@@ -104,6 +95,15 @@
                     <num_puertas>4</num_puertas>
                     <combustible>Gasoil</combustible>
                 </coche>
+                <coche id="33">
+                    <marca>Peugeot</marca>
+                    <modelo>2008</modelo>
+                    <creacion>2024</creacion>
+                    <precio>32000.0</precio>
+                    <color>Blanco</color>
+                    <num_puertas>4</num_puertas>
+                    <combustible>Gasolina</combustible>
+                </coche>
             </coches>
             <empleados>
                 <empleado id="1">
@@ -120,9 +120,9 @@
                     <apellidos>Pérez Gómez</apellidos>
                     <dni>98765432C</dni>
                     <puesto>Vendedor/a</puesto>
-                    <telefono>700000000</telefono>
+                    <telefono>734565432</telefono>
                     <correo>elena.perez@madridautos.com</correo>
-                    <sueldo>28000.0</sueldo>
+                    <sueldo>23000.0</sueldo>
                 </empleado>
                 <empleado id="4">
                     <nombre>Fernando</nombre>
@@ -455,6 +455,24 @@
                     <puesto>Vendedor/a</puesto>
                     <telefono>635678901</telefono>
                     <correo>antonio.vazquez@valenciaautos.com</correo>
+                    <sueldo>25000.0</sueldo>
+                </empleado>
+                <empleado id="18">
+                    <nombre>Patricia</nombre>
+                    <apellidos>Muniain Galera</apellidos>
+                    <dni>98987656X</dni>
+                    <puesto>Vendedor/a</puesto>
+                    <telefono>659872144</telefono>
+                    <correo>patriciamuniain@gmail.com</correo>
+                    <sueldo>23000.0</sueldo>
+                </empleado>
+                <empleado id="19">
+                    <nombre>Alvaro</nombre>
+                    <apellidos>Maya</apellidos>
+                    <dni>73452342Z</dni>
+                    <puesto>Marketing</puesto>
+                    <telefono>656432312</telefono>
+                    <correo>alvaromaya@gmail.com</correo>
                     <sueldo>25000.0</sueldo>
                 </empleado>
             </empleados>

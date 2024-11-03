@@ -7,6 +7,7 @@ import Modelo.Clases.Empleado;
 import Modelo.Clases.Sucursal;
 import java.time.Year;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import javax.xml.bind.JAXBException;
 
@@ -292,12 +293,32 @@ public class Vista {
     public void menuLeerConcesionario() throws JAXBException {
         int opcion = -1;
 
-        while (opcion != 1) {
+        while (opcion != 0) {
+            System.out.println("Seleccione una opción:");
             System.out.println("1. Información general del concesionario.");
-            opcion = sc.nextInt();
-            sc.nextLine();
+            System.out.println("0. Salir.");
+
+            
+            try {
+                opcion = sc.nextInt();
+                sc.nextLine();
+            } catch (InputMismatchException e) {
+                System.out.println("Por favor, ingresa un número válido.");
+                sc.nextLine(); 
+                continue; 
+            }
+
+            switch (opcion) {
+                case 1:
+                    controlador.mostrarInfoGeneralConcesionario();
+                    break;
+                case 0:
+                    System.out.println("Saliendo del menú.");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Inténtalo de nuevo.");
+            }
         }
-        controlador.mostrarInfoGeneralConcesionario();
     }
 
     public void menuLeerSucursal() {
@@ -726,6 +747,22 @@ public class Vista {
         } else {
             System.out.println("No se ha encontrado ningún empleado con ese ID");
         }
+    }
+
+    public void opcionNoValida() {
+        System.out.println("Opción no válida. Inténtelo de nuevo.");
+    }
+
+    public void saliendoDelPrograma() {
+        System.out.println("Saliendo del programa...");
+    }
+
+    public void mostrarMensajeEmpleadoAñadido() {
+        System.out.println("El empleado se ha añadido con éxito.");
+    }
+
+    public void mostrarMensajeCocheAñadido() {
+        System.out.println("El coche se ha añadido con éxito.");
     }
 
     public void mostrarMensajeEmpleadoEliminado() {

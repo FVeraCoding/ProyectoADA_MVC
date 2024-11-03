@@ -31,14 +31,14 @@ public class Controlador {
         Coche coche = vista.nuevoCoche();
         coche.setId(modelo.getUltimoCocheID() + 1); 
         modelo.insertarCoche(coche, vista.obtenerSucursalID()); 
-        System.out.println("Coche añadido: " + coche.getMarca() + " " + coche.getModelo());
+        vista.mostrarMensajeCocheAñadido();
     }
     
     public void agregarEmpleado() throws XPathExpressionException, SAXException, IOException, JAXBException, ParserConfigurationException{
         Empleado empleado = vista.nuevoEmpleado();
         empleado.setId(modelo.getUltimoEmpleadoID()+1);
         modelo.insertarEmpleado(empleado, vista.obtenerSucursalID());
-        System.out.println("Empleado añadido: "+empleado.getNombre() + " "+empleado.getApellidos()+ " "+" - "+empleado.getPuesto());
+        vista.mostrarMensajeEmpleadoAñadido();
     }
     
     public void leerEmpleados() throws JAXBException{
@@ -142,10 +142,10 @@ public class Controlador {
                 eliminarCoche();
                 break;
             case 0:
-                System.out.println("Saliendo del programa...");
+                vista.saliendoDelPrograma();
                 break;
             default:
-                System.out.println("Opción no válida. Inténtalo de nuevo.");
+                vista.opcionNoValida();
                 break;
         }
     }

@@ -1,4 +1,4 @@
-package nuevoMain;
+package Main;
 
 import Controlador.Controlador;
 import Modelo.Logica.Modelo;
