@@ -1,89 +1,37 @@
-Información general 1.0
+# Gestión de Concesionario de Coches
 
-Hemos elegido un concesionario para este proyecto, ya que permite gestionar de manera eficiente un inventario de coches, facilitando la organización y manipulación de datos relevantes como modelos, precios, y características, lo que es ideal para aplicar el patrón MVC con JAXB para manejar la información de forma estructurada en un documento XML.
+**Descripción**: Aplicación para la gestión de coches y empleados en un concesionario. Utiliza JAXB para el procesamiento de archivos XML, facilitando la persistencia y manipulación de datos sobre vehículos y empleados.
 
-Se entregará la siguiente documentación: Explicación del documento XML creado.
-Explicación del reparto de las tareas entre los miembros del grupo y justificación de este reparto.
+## Índice
 
+- [Descripción](#descripción)
+- [Características](#características)
+- [Instalación](#instalación)
 
-Arquitectura del Proyecto 2.0
+## Descripción
 
-Vista
-Menú (“Interfaz si nos da tiempo)
-Consultas
-Leer el documento.
-Añadir un elemento al documento.
-Borrar un elemento del documento.
-Modificar un elemento del documento.
-(Se añadirán varias más)
+Esta aplicación permite gestionar el inventario de coches y el registro de empleados de un concesionario. Utiliza **JAXB (Java Architecture for XML Binding)** para realizar el mapeo de datos entre objetos Java y documentos XML, lo que facilita el almacenamiento, carga y actualización de la información del concesionario en formato XML.
 
-Modelo
-XML
-(archivo adjunto xml)
- Clases de Java
-Concesionario
-String nombre
-String CEO
-List<Sucursal> listaSucursal
-Sucursal
-int id
-Empleado jefe
-String localizacion
-int telefono 
-List<Empleado>
-List<Coche>
-Empleado
-(Atributo solo de Java) int idSucursal = sucursal.id
-int id
-String nombre
-String apellidos
-String DNI
-Puesto enum
-int telefono
-String correo
-double sueldo
-Date f_contrato 
-Coches
-(Atributo solo de Java) int idSucursal = sucursal.id
-int id
-Marca enum
-String modelo
-Date fchFabricacion
-precio double
-String color
-int num_puertas
-Combustible enum 
-Controlador
-Crear
-coche
-empleado
-(Si da tiempo sucursal)
-Leer
-concesionario
-todo
-sucursal
-información general
-por id
-cantidad de coches
-cantidad de empleados
-empleado
-id
-Puesto
-saldo [rango <>=]
-sucursal
-coche
-marca
-id
-stock ->  contador búsqueda por nombre modelo y idSucursal
-puertas
-combustible
-fecha (fchFabricacion)
-precio [rango <>=]
+## Características
 
+- **Gestión de coches**: Agrega, elimina y actualiza los detalles de los coches disponibles en el concesionario, como marca, modelo, año y precio.
+- **Gestión de empleados**: Registra, actualiza y elimina empleados, manteniendo información como nombre, cargo y fecha de contratación.
+- **Persistencia en XML**: Guarda y carga todos los datos en archivos XML para facilitar la manipulación y el almacenamiento estructurado.
+- **Interfaz amigable**: Aplicación de consola que permite a los usuarios interactuar fácilmente con las funciones de gestión.
 
-Actualizar
-empleados
-coches
-editar atributos sucursal
-Eliminar
+## Instalación
 
+Asegúrate de tener [Java](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) instalado. Luego, clona el repositorio y compila el proyecto.
+
+```bash
+# Clona este repositorio
+git clone https://github.com/usuario/gestion-concesionario.git
+
+# Entra en el directorio del proyecto
+cd gestion-concesionario
+
+# Compila el proyecto
+javac -d bin -sourcepath src src/Main.java
+
+# Ejecuta la aplicación
+java -cp bin Main
